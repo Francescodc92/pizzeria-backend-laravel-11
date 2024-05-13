@@ -8,6 +8,8 @@
 
 ### Tecnologie:
   - laravel 11
+    - Breeze
+    - sanctum
   - docker
   - tailwind css
   - mySql 
