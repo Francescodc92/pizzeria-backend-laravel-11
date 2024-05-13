@@ -3,7 +3,7 @@
 - [repo frontend (temporaneo)](https://github.com/Francescodc92/pizzeria-full-stack)
 
 ### Progetto db
-![database-structure](./.github/db_pizzeria.png)
+![database-structure](./.github/pizzeria_db.png)
 
 
 ### Tecnologie:
