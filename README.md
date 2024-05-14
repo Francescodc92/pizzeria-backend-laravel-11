@@ -10,6 +10,7 @@
   - laravel 11
     - Breeze
     - sanctum
+    - spatie (gestione dei ruoli)
   - docker
   - tailwind css
   - mySql 
