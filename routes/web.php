@@ -12,7 +12,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/prova', function () {
+Route::middleware(['auth', 'role:admin'])->get('/prova',  function () {
     return view('admin.prova');
 })->middleware(['auth', 'verified'])->name('prova');
 
