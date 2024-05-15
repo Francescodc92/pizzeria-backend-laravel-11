@@ -17,21 +17,19 @@ class AddressSeeder extends Seeder
         $users = User::all();
         
         foreach ($users as $user) {
-            Address::create([
-                'user_id' => $user->id,
-                'road' => fake()->streetAddress,
-                'city' => fake()->city,
-                'country' => fake()->country,
-                'zip_code' => fake()->postcode
-            ]);
 
-            Address::create([
-                'user_id' => $user->id,
-                'road' => fake()->streetAddress,
-                'city' => fake()->city,
-                'country' => fake()->country,
-                'zip_code' => fake()->postcode
-            ]);
+            $numberAddresses = rand(1, 3);
+
+            for($i = 0; $i < $numberAddresses; $i++){
+                Address::create([
+                    'user_id' => $user->id,
+                    'road' => fake()->streetAddress(),
+                    'city' => fake()->city(),
+                    'country' => fake()->country(),
+                    'zip_code' => fake()->postcode()
+                ]);
+                
+            }
             
         }
     }
