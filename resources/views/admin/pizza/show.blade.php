@@ -2,11 +2,11 @@
   <div class="w-full py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       
-          <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista pizze</h2>
+          <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">{{ $pizza->name }}</h2>
           
           <div class="mb-8">   
             <a href="{{ route('admin.pizzas.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              Pizzas Index
+              Lista Pizze
             </a>
           </div>
 
@@ -38,15 +38,15 @@
                   <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $pizza->available ? 'disponibile' : 'non disponibile' }}</span>
                 </div>
                 <div class="text-center mt-6">
-                  <a href="{{ route('admin.pizzas.edit', $pizza->id) }}" class="font-medium inline-block text-yellow-600 dark:text-yellow-500 hover:underline px-4 py-2 border rounded-md hover:bg-yellow-500 hover:text-white border-yellow-500">Edit</a>
+                  <a href="{{ route('admin.pizzas.edit', $pizza->id) }}" class="font-medium inline-block text-yellow-600 dark:text-yellow-500 hover:underline px-4 py-2 border rounded-md hover:bg-yellow-500 hover:text-white border-yellow-500">Modifica</a>
                   <form  class="inline-block"
                     action="{{ route('admin.pizzas.destroy', $pizza->id)}}" 
                     method="POST"
-                    onsubmit="return confirm('Are you sure?')"
+                    onclick="confirmation(event)"
                     >
                         @method('DELETE')
                         @csrf
-                        <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="submit">Delete</button>
+                        <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="submit">Elimina</button>
                   </form>
                 </div>
               </div>
