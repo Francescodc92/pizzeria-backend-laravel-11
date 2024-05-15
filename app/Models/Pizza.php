@@ -40,7 +40,7 @@ class Pizza extends Model
             return $this->price - ($this->price * $this->discount_percent / 100);
         }
 
-        return null;
+        return $this->price;
     }
 
     public function orders(): HasMany
