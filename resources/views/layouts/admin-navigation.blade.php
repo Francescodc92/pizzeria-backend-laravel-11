@@ -1,6 +1,9 @@
 <div @click.away="open = false" class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white border-r-2 dark:border-e-2 border-[#C83B1A] lg:w-60 dark:text-gray-200 dark:bg-gray-900/85" x-data="{ open: false }">
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-        <a href="{{ route('dashboard') }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">Don Peppe</a>
+        <a href="{{ route('dashboard') }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
+            <img class="hidden lg:block mx-w-[150px]" src="{{ asset('assets/img/logo.png') }}" alt="">
+            Don Peppe
+        </a>
         <button class="rounded-lg lg:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                 <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -9,7 +12,8 @@
         </button>
     </div>
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 lg:block lg:pb-0 lg:overflow-y-auto">
-        <x-admin-link href="{{ route('admin.pizzas.index') }}" :active="request()->routeIs('admin.pizzas.*')">Pizzas</x-admin-link>
+        <x-admin-link href="{{ route('admin.pizzas.index') }}" :active="request()->routeIs('admin.pizzas.*')">Pizze</x-admin-link>
+        <x-admin-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.*')">Utenti</x-admin-link>
 
 
         <div @click.away="open = false" class="relative" x-data="{ open: false }">

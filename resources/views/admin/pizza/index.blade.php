@@ -58,7 +58,7 @@
                                 <a href="{{ route('admin.pizzas.show', $pizza->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">show</a>
                                 <a href="{{ route('admin.pizzas.edit', $pizza->id) }}" class="font-medium inline-block text-yellow-600 dark:text-yellow-500 hover:underline px-4 py-2 border rounded-md hover:bg-yellow-500 hover:text-white border-yellow-500">Edit</a>
                             
-                                <form onclick="confirmation(event, 'pizza')"  class="inline-block" id="deleteForm{{$pizza->id}}" action="{{ route('admin.pizzas.destroy', $pizza->id)}}" method="POST">
+                                <form onclick="confirmation(event)"  class="inline-block" id="deleteForm{{$pizza->id}}" action="{{ route('admin.pizzas.destroy', $pizza->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="button" @click="openDeletePizza = true">Delete</button>
