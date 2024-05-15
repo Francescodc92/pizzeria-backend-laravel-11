@@ -20,7 +20,7 @@
             <!-- Page Content -->
             <main class="flex-col w-full  lg:flex lg:flex-row min-h-screen h-full bg-gray-100 dark:bg-gray-900 ">
                 @include('layouts.admin-navigation')
-                <div class="flex w-full bg-slate-50 dark:bg-slate-700 min-h-screen px-3">
+                <div class="flex w-full min-h-screen px-3 bg-[url('img/cielostellato.PNG')] bg-center bg-cover">
                     {{ $slot }}
                 </div>
             </main>
