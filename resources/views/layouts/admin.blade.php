@@ -17,7 +17,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased min-h-full overflow-x-hidden">
-        
+        @include('layouts.admin-session-message')
         <!-- Page Content -->
         <main class="flex-col w-full  lg:flex lg:flex-row min-h-screen h-full bg-gray-100 dark:bg-gray-900 ">
             @include('layouts.admin-navigation')

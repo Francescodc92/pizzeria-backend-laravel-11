@@ -37,7 +37,7 @@ class PizzaController extends Controller
 
         Pizza::create($formData);
 
-        return redirect()->route('admin.pizzas.index')->with('message', 'Pizza Created Successfully');
+        return redirect()->route('admin.pizzas.index')->with('message', 'Pizza creata con successo!');
     }
 
     public function show(Pizza $pizza)
@@ -78,7 +78,7 @@ class PizzaController extends Controller
 
         $pizza->update($formData);
 
-        return redirect()->route('admin.pizzas.index')->with('message', 'Pizza Updated Successfully');
+        return redirect()->route('admin.pizzas.index')->with('message', 'Pizza Modificata con successo!');
     }
 
 
@@ -90,6 +90,6 @@ class PizzaController extends Controller
             Storage::delete($pizza->image);
         }
 
-        return redirect()->route('admin.pizzas.index')->with('message', 'Pizza Deleted Successfully');
+        return redirect()->route('admin.pizzas.index')->with('message', 'Pizza eliminata con successo');
     }
 }
