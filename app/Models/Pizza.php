@@ -19,13 +19,24 @@ class Pizza extends Model
     ];
 
     protected $appends = [
-        'full_image_path'
+        'full_image_path',
+        'price_after_discount',
     ];
 
     public function getFullImagePathAttribute()
     {
         if($this->image){
             return asset('storage/'. $this->image );
+        }
+
+        return null;
+    }
+
+    public function getPriceAfterDiscountAttribute()
+    {
+    
+        if ($this->discount_percent) {
+            return $this->price - ($this->price * $this->discount_percent / 100);
         }
 
         return null;

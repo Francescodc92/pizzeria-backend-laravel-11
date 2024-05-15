@@ -1,4 +1,4 @@
-<div @click.away="open = false" class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white border-r-2 dark:border-e-2 border-[#C83B1A] lg:w-60 dark:text-gray-200 dark:bg-gray-800" x-data="{ open: false }">
+<div @click.away="open = false" class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white border-r-2 dark:border-e-2 border-[#C83B1A] lg:w-60 dark:text-gray-200 dark:bg-gray-900/85" x-data="{ open: false }">
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
         <a href="{{ route('dashboard') }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">Don Peppe</a>
         <button class="rounded-lg lg:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -9,6 +9,7 @@
         </button>
     </div>
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 lg:block lg:pb-0 lg:overflow-y-auto">
+        <x-admin-link href="{{ route('admin.pizzas.index') }}" :active="request()->routeIs('admin.pizzas.*')">Pizzas</x-admin-link>
 
 
         <div @click.away="open = false" class="relative" x-data="{ open: false }">

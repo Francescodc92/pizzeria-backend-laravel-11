@@ -5,7 +5,7 @@
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista pizze</h2>
 
         <div class="mb-8">
-            <a  class="bg-green-500 cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <a href="{{ route('admin.pizzas.create') }}" class="bg-green-500 cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Create Pizza
             </a>
         </div>
@@ -55,12 +55,13 @@
                           <td>
   
                             <div class="space-x-1 min-w-fit text-nowrap px-3">
-                                <a class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">show</a>
-                                <a class="font-medium inline-block text-yellow-600 dark:text-yellow-500 hover:underline px-4 py-2 border rounded-md hover:bg-yellow-500 hover:text-white border-yellow-500">Edit</a>
+                                <a href="{{ route('admin.pizzas.show', $pizza->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">show</a>
+                                <a href="{{ route('admin.pizzas.edit', $pizza->id) }}" class="font-medium inline-block text-yellow-600 dark:text-yellow-500 hover:underline px-4 py-2 border rounded-md hover:bg-yellow-500 hover:text-white border-yellow-500">Edit</a>
                             
                                 <form  class="inline-block"
-                                  method="POST"
-                                  onsubmit="return confirm('Are you sure?')"
+                                    action="{{ route('admin.pizzas.destroy', $pizza->id)}}"
+                                    method="POST"
+                                    onsubmit="return confirm('Are you sure?')"
                                 >
                                     @method('DELETE')
                                     @csrf
@@ -72,12 +73,15 @@
                       </tr>
                   @endforeach
               </tbody>
-          </table>
+
+            </table>
+            <div class="py-2 px-3 text-xs text-gray-700 bg-gray-200 dark:bg-gray-600 dark:text-gray-400">
+
+                {{ $pizzas->links() }}
+            </div>
         </div>
 
     </div>
-
-    {{ $pizzas->links() }}
 
 </div>
 </x-admin-layout>
