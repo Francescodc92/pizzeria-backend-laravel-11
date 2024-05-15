@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pizza extends Model
 {
@@ -40,5 +41,10 @@ class Pizza extends Model
         }
 
         return null;
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(OrderPizza::class);
     }
 }
