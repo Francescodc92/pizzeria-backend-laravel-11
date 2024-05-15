@@ -21,7 +21,7 @@
                                         </svg>
                                     </div>
                                     <input type="search" id="serch-input" name="search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="cerca per nome/email" value="{{ $searchTerm }}">
-                                    <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                                    <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cerca</button>
                                 </div>
                             </div>
                         </form>          
@@ -41,8 +41,8 @@
                    <th scope="col" class="px-6 py-3">
                        Ruoli Utente
                    </th>
-                   <th scope="col" class="px-6 py-3">
-                       Actions
+                   <th scope="col" class="px-6 py-3 text-right">
+                       Assegna ruolo
                    </th>
                   </tr>
             </thead>
@@ -64,7 +64,9 @@
                                         >
                                             @method('DELETE')
                                             @csrf
-                                            <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="submit">{{ $user_role->name }}</button>
+                                            <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="submit">
+                                                {{ ($user_role->name == 'admin') ? 'Amministratore' : (($user_role->name == 'employee') ? 'Dipendente' : 'Utente') }}
+                                            </button>
                                         </form>
                                   @endforeach
 
@@ -75,7 +77,9 @@
                                         <div>
                                             <select id="roles" name="role" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400  text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" >
                                                 @foreach ($roles as $role)
-                                                    <option value="{{ $role->name }}" >{{ $role->name }}</option>
+                                                    <option value="{{ $role->name }}" >
+                                                        {{ ($role->name == 'admin') ? 'Amministratore' : (($role->name == 'employee') ? 'Dipendente' : 'Utente') }}    
+                                                    </option>
                                                 @endforeach
                                             </select>
                                             @error('role')
@@ -84,7 +88,7 @@
                                         </div>
                                         <div>
                                             <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                                            Assign
+                                            Assegna ruolo
                                             </button>
 
                                         </div>
