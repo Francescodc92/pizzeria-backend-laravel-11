@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             AdminSeeder::class,
             UserSeeder::class,
+            AddressSeeder::class,
             PizzaSeeder::class,
         ]);
     }
