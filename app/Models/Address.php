@@ -16,9 +16,9 @@ class Address extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function orders(): HasMany
+    public function order(): BelongsTo 
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsTo(Order::class);
     }
     
 }

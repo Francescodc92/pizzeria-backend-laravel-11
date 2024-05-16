@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pizza extends Model
@@ -24,6 +25,8 @@ class Pizza extends Model
         'price_after_discount',
     ];
 
+    
+
     public function getFullImagePathAttribute()
     {
         if($this->image){
@@ -43,8 +46,9 @@ class Pizza extends Model
         return $this->price;
     }
 
-    public function orders(): HasMany
+
+    public function orders(): BelongsToMany
     {
-        return $this->hasMany(OrderPizza::class);
+        return $this->belongsToMany(Order::class)->withPivot('quantity');
     }
 }

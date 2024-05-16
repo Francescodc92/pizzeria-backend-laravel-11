@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\PizzaController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\ProfileController;
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
     Route::resource('/pizzas', PizzaController::class);
     Route::resource('/users', UserController::class);
+    Route::resource('/orders', OrderController::class);
     Route::post('/users/{user}/roles', [UserController::class , 'assignRole'])->name('user.role');
     Route::delete('/users/{user}/role/{role}', [UserController::class, 'removeRole'])->name('user.role.remove');
 });
