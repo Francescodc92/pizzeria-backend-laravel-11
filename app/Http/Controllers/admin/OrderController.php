@@ -14,14 +14,7 @@ class OrderController extends Controller
         $orders = Order::orderBy('order_date', 'DESC')->paginate(10);
 
         $orders->load('user', 'pizzas');
-
-        foreach ($orders as $order) {
-            foreach ($order->pizzas as $pizza) {
-                $pizza['quantity'] = $pizza->pivot->quantity;
-                unset($pizza['pivot']);
-            }
-        }
-    
+        
         return view('admin.order.index', compact('orders'));
     }
 

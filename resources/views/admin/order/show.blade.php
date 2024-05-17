@@ -2,7 +2,7 @@
   <div class="w-full py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       
-          <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Ordine n:{{ $order->id }}</h2>
+          <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Id Ordine: {{ $order->id }}</h2>
           
           <div class="mb-8">   
             <a href="{{ route('admin.orders.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
