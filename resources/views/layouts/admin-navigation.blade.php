@@ -14,7 +14,7 @@
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 lg:block lg:pb-0 lg:overflow-y-auto">
         <x-admin-link href="{{ route('admin.pizzas.index') }}" :active="request()->routeIs('admin.pizzas.*')">Pizze</x-admin-link>
         <x-admin-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.*')">Utenti</x-admin-link>
-
+        <x-admin-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.*')">Ordini</x-admin-link>
 
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 lg:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,8 +12,17 @@ class Order extends Model
 {
     use HasFactory;
 
-    
+    protected $appends = [
+        'order_date_forHumans',
+    ];
 
+    public function getOrderDateForHumansAttribute()
+    {
+        Carbon::setLocale('it');
+        $orderDateCarbon =  Carbon::parse($this->order_date);
+
+        return $orderDateCarbon->diffForHumans();
+    }
 
     public function user(): BelongsTo
     {

@@ -11,21 +11,25 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('pizzas')->get(); // Eager load pizzas with orders
+        $orders = Order::orderBy('order_date', 'DESC')->paginate(10);
 
-        // Opzionale: convertire la collezione in array
+        $orders->load('user', 'pizzas');
+
         foreach ($orders as $order) {
             foreach ($order->pizzas as $pizza) {
                 $pizza['quantity'] = $pizza->pivot->quantity;
                 unset($pizza['pivot']);
             }
         }
+    
+        return view('admin.order.index', compact('orders'));
+    }
 
-        $orderPizzaArray = $orders->toArray();
-        
-        dd($orderPizzaArray);
+    public function show(Order $order)
+    {
+        $order->load('pizzas', 'user', 'address');
 
-        
-    return;
+
+        return view('admin.order.show', compact('order'));
     }
 }

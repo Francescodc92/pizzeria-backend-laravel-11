@@ -5,6 +5,8 @@
 ### Progetto db
 ![database-structure](./.github/db_pizzeria.png)
 
+## TODO
+  - sistemare il componente di paginazione default di laravel
 
 ### Tecnologie:
   - laravel 11
