@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image')->nullable();
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->decimal('price',8,2);
             $table->integer('discount_percent')->nullable()->default(0);
             $table->boolean('available')->default(true);

@@ -1,6 +1,7 @@
 <div class="mb-4">
   <label class="block text-gray-700 dark:text-white text-sm font-bold mb-2" for="name">
-    Name
+    <span class="text-[#C83B1A]">*</span>
+    Nome 
   </label>
   <input class="shadow dark:bg-slate-500 dark:text-white  border-[#C83B1A] appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" value="{{ isset($pizza) ? $pizza->name : old('name') }}">
   @error('name')
@@ -9,7 +10,9 @@
 </div>
 
 <div class="mb-4">
-  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload file</label>
+  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">
+    Immagine
+  </label>
   <input class="shadow appearance-none border dark:bg-slate-500  border-[#C83B1A] dark:text-white  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="image" name="image" type="file" accept="image/*">
 </div>
 @error('image')
@@ -34,26 +37,27 @@
 
 <div class="mb-4">
   <label class="block text-gray-700 dark:text-white text-sm font-bold mb-2" for="price">
-    Price
+    <span class="text-[#C83B1A]">*</span> Prezzo
   </label>
   <input class="shadow appearance-none border dark:bg-slate-500  border-[#C83B1A] dark:text-white  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" name="price" type="number" step="0.01" value="{{ isset($pizza) ? $pizza->price : old('price') }}">
+  @error('price')
+    <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
+  @enderror
 </div>
-@error('price')
-  <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
-@enderror
+
 <div class="mb-4">
   <label class="block text-gray-700 dark:text-white text-sm font-bold mb-2" for="price_single">
-    discount_percent
+    Percentuale di sconto
   </label>
   
   <input class="shadow appearance-none  border-[#C83B1A] dark:bg-slate-500 dark:text-white rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="discount_percent" name="discount_percent" type="number" value="{{ isset($pizza) ? $pizza->discount_percent : old('discount_percent') }}">
+  @error('discount_percent')
+    <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
+  @enderror
 </div>
-@error('discount_percent')
-  <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
-@enderror
 
 <div class="mb-4 flex items-center dark:text-white">
-  Available
+  Disponibile
   <label
   class="relative flex items-center p-3 rounded-full cursor-pointer"
   for="available"
@@ -70,14 +74,16 @@
     @error('available')
       <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
     @enderror
-</div>     
+</div> 
+    
 <div class="dark:text-white">
-  Description
+  <span class="text-[#C83B1A]">*</span>
+  Descrizione
   <textarea
       class="peer h-full min-h-[100px] dark:bg-slate-500 border-[#C83B1A] w-full resize-none rounded-[7px] border border-blue-gray-200  bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
       name="description"
     >{{ isset($pizza) ? $pizza->description : old('description') }}</textarea>
     @error('description')
-      <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
+      <span class="mt-0 text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
     @enderror
 </div>
