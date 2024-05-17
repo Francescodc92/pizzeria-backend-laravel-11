@@ -7,6 +7,8 @@
 
 ## TODO
   - sistemare il componente di paginazione default di laravel
+  - !urgente aggiungere la lista di indirizzi nello show dell'utente (creare la show degli utenti )
+  - valutare la possibilità di visualizzare nello show dell'utente una lista di ordini precedenti
 
 ### Tecnologie:
   - laravel 11

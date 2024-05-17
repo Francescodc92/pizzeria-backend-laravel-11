@@ -49,14 +49,7 @@
                           <td>
   
                             <div class="space-x-1 min-w-fit text-nowrap px-3 text-right">
-                                <a href="{{ route('admin.orders.show', $order->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza</a>
-                                <a href="{{ route('admin.orders.edit', $order->id) }}" class="font-medium inline-block text-yellow-600 dark:text-yellow-500 hover:underline px-4 py-2 border rounded-md hover:bg-yellow-500 hover:text-white border-yellow-500">Modifica</a>
-                            
-                                <form onclick="confirmation(event)"  class="inline-block" action="{{ route('admin.pizzas.destroy', $order->id)}}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="button">Elimina</button>
-                                </form>                           
+                                <a href="{{ route('admin.orders.show', $order->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza</a>                         
                             </div>
                         </td>
                     </tr>

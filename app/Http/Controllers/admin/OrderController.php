@@ -29,7 +29,11 @@ class OrderController extends Controller
     {
         $order->load('pizzas', 'user', 'address');
 
-
         return view('admin.order.show', compact('order'));
+    }
+
+    public function update()
+    {
+        dd('ci sono');
     }
 }

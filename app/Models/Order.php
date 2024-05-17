@@ -14,7 +14,14 @@ class Order extends Model
 
     protected $appends = [
         'order_date_forHumans',
+        'order_statuses'
     ];
+
+    public function getOrderStatusesAttribute()
+    {
+        return ['pending', 'processing', 'shipped', 'completed'];
+    }
+
 
     public function getOrderDateForHumansAttribute()
     {

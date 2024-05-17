@@ -74,24 +74,18 @@
                                 <td >
                                     <form method="POST" action="{{route('admin.user.role', $user->id)}}" class="flex gap-3 items-center justify-end  rounded px-2">
                                         @csrf
-                                        <div>
-                                            <select id="roles" name="role" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400  text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" >
-                                                @foreach ($roles as $role)
-                                                    <option value="{{ $role->name }}" >
-                                                        {{ ($role->name == 'admin') ? 'Amministratore' : (($role->name == 'employee') ? 'Dipendente' : 'Utente') }}    
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            @error('role')
-                                                <span class="text-red-400 text-sm">{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                        <div>
-                                            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                                            Assegna ruolo
-                                            </button>
-
-                                        </div>
+                                        
+                                    <select onchange="this.form.submit()" id="roles" name="role" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400  text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" >
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->name }}" >
+                                                {{ ($role->name == 'admin') ? 'Amministratore' : (($role->name == 'employee') ? 'Dipendente' : 'Utente') }}    
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('role')
+                                        <span class="text-red-400 text-sm">{{$message}}</span>
+                                    @enderror
+                                        
                                     </form>
                                 </td>
                             </tr>
