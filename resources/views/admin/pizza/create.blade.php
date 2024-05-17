@@ -10,7 +10,7 @@
         </div>
 
         <div class="w-full mx-auto max-w-xl">
-          <form class="bg-white dark:bg-slate-800 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('admin.pizzas.store') }}" method="post" enctype="multipart/form-data">
+          <form class="bg-slate-200 dark:bg-slate-800 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('admin.pizzas.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             @include('admin.pizza.pizza-components.form-fields')

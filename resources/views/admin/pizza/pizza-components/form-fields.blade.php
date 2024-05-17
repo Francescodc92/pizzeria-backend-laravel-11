@@ -27,7 +27,7 @@
         name="remove_image"
         value="1"
       />
-    <label class="ms-3 text-white capitalize" for="remove_image">rimuovi vecchia immagine</label>
+    <label class="text-sm font-medium text-gray-900 dark:text-white capitalize" for="remove_image">rimuovi immagine precedente</label>
   </div>
 </div>
 @endIf

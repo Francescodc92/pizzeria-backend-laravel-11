@@ -4,7 +4,7 @@
 
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista Ordini</h2>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto border bg-gray-200 dark:bg-gray-600 p-2 border-[#C83B1A] rounded-md">
           <table class="rounded-lg min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-600 dark:text-gray-400">
                   <tr>
