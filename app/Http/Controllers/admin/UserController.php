@@ -24,6 +24,11 @@ class UserController extends Controller
         return view('admin.user.index', compact('users', 'roles', 'searchTerm'));
     }
 
+    public function show(User $user)
+    {
+        $roles = Role::all();
+        return view('admin.user.show', compact('user', 'roles'));
+    }
 
     public function assignRole(Request $request , User $user)
     {
