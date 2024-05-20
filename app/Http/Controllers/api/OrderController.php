@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Payment\MakePaymentRequest;
 use App\Models\Order;
 use App\Models\Pizza;
 use App\Models\User;
@@ -22,7 +23,7 @@ class OrderController extends Controller
     }
 
     // todo create OrderRequest
-    public function makePayment(Request $request, Gateway $gateway)
+    public function makePayment(MakePaymentRequest $request, Gateway $gateway)
     {
 
         $pizzasArray = $request->pizzas;
