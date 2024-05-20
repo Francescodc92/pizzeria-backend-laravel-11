@@ -11,7 +11,7 @@ class MakePaymentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // TODO cambiare con il check dell'autenticazione 
+        return auth()->check();
     }
 
     /**

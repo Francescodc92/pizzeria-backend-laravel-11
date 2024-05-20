@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function generateFrontToken( Gateway $gateway)
+    public function generateFrontToken(Gateway $gateway)
     {
         $token = $gateway->ClientToken()->generate();
         $data= [
@@ -31,8 +31,7 @@ class OrderController extends Controller
         $amount = 0;
 
 
-        $user = User::find(1); // cambiare con lo user autenticato appena fatto il login da api
-        // $user = auth()->user();
+        $user = auth()->user();
         $userAddress = $user->addresses()->where([
             ['road', $requestAddress['road']],
             ['city', $requestAddress['city']],
