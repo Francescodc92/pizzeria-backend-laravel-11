@@ -10,9 +10,6 @@
 
   1. sistemare il componente di paginazione default di laravel
 
-  2. modificare lo user nell'OrderController da quello statico a quello loggato una volta create le rotte di autenticazione del frontend 
-    - cambiare anche nel MakePaymentRequest
-
   3. filtrare gli ordini già completi perché non vengano  visualizzati
     - premetter il riordinamento in base ai campi cliccati nella table 
     - permettere la visualizzazione degli ordini terminati
