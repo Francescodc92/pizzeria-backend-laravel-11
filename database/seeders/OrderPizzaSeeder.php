@@ -32,9 +32,9 @@ class OrderPizzaSeeder extends Seeder
                 $order = new Order([
                     'user_id' => $user->id,
                     'address_id' => $userAddress->id,
-                    'order_date' => Carbon::now()->subDays(rand(0, 365)), // Random date within the year
+                    'order_date' => Carbon::now()->subDays(rand(0, 365)),
                     'status' => $status,
-                    'order_price' => 0, // Initialize order price to 0
+                    'order_price' => 0, 
                 ]);
 
                 $order->save();

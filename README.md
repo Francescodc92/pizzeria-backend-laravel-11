@@ -10,7 +10,7 @@
 
   1. sistemare il componente di paginazione default di laravel
 
-  2. creare un form per la creazione di una ordinazione (temporanea per testare la creazione)
+  2. modificare lo user nell'OrderController da quello statico a quello loggato una volta create le rotte di autenticazione del frontend 
 
   3. filtrare gli ordini già completi perché non vengano  visualizzati
     - premetter il riordinamento in base ai campi cliccati nella table 

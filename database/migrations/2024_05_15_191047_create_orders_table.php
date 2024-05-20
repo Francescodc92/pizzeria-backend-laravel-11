@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('address_id');
                 $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
-            $table->dateTime('order_date');
+            $table->dateTime('order_date')->default(now());
             $table->enum('status', ['pending', 'processing', 'shipped', 'completed'])->default('pending');
             $table->decimal('order_price', 8, 2);
             
