@@ -10,13 +10,12 @@
 
   1. sistemare il componente di paginazione default di laravel
 
-  2. urgente aggiungere la lista di indirizzi nello show dell'utente (creare la show degli utenti)
-    - valutare la possibilità di visualizzare nello show dell'utente una lista di ordini precedenti
-    - creare un form per la creazione di una ordinazione (temporanea per testare la creazione)
+  2. creare un form per la creazione di una ordinazione (temporanea per testare la creazione)
 
   3. filtrare gli ordini già completi perché non vengano  visualizzati
     - premetter il riordinamento in base ai campi cliccati nella table 
     - permettere la visualizzazione degli ordini terminati
+    
   4. iniziare a lavorare sulla parte della dashboard (grafici per amministratore)
 
   ### Employee

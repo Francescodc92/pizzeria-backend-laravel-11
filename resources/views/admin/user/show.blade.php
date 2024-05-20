@@ -24,7 +24,7 @@
                  
                </div>
  
-               <div class="content lg:w-1/3 flex flex-col justify-center sm:justify-start sm:items-center my-8 lg:my-0">
+               <div class="content lg:w-1/3 flex flex-col justify-center sm:justify-start sm:items-center lg:items-start my-8 lg:my-0">
                  <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-2">Indirizzi Registrati</h2>
                  @foreach ($user->addresses as $address)
                    <div class="mb-2">

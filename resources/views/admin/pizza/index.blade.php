@@ -6,7 +6,7 @@
 
         <div class="mb-8">
             <a href="{{ route('admin.pizzas.create') }}" class="bg-green-500 cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Create Pizza
+                Crea Pizza
             </a>
         </div>
 
