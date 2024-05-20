@@ -11,6 +11,14 @@ class Address extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'road', 
+        'city', 
+        'country',
+        'zip_code',
+    ];
+
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -20,5 +28,7 @@ class Address extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+
     
 }

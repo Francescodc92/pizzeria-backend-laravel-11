@@ -12,6 +12,12 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id' ,
+        'address_id' ,
+        'order_price'     
+    ];
+
     protected $appends = [
         'order_date_forHumans',
         'order_statuses'
