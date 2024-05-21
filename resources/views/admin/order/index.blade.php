@@ -1,5 +1,5 @@
 <x-admin-layout>
-  <div class="w-full py-12">
+  <div class="w-full py-3 lg:py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-4">
 
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista Ordini</h2>
@@ -34,7 +34,7 @@
                           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                               {{ $order->id }}
                           </th>
-                          <td class="px-6 py-4">
+                          <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                               {{ $order->user->first_name .' '. $order->user->last_name }}
                           </td>
                           <td class="px-6 py-4">

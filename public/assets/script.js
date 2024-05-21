@@ -1,4 +1,4 @@
-function confirmation(event){
+const confirmation = (event) => {
   event.preventDefault();
   let  formElement = event.currentTarget;
 
