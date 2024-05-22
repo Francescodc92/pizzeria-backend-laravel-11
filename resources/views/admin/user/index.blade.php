@@ -1,6 +1,6 @@
 <x-admin-layout>
-  <div class="w-full py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-4">
+  <div class="w-full py-3 lg:py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-4 pb-5">
 
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista utenti</h2>
 
@@ -55,13 +55,13 @@
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $user->first_name }}  {{ $user->last_name }}
                             </th>
-                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <td scope="row" class="px-6 py-4">
                                 {{ $user->email }}
                             </td>
-                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <td scope="row" class="px-6 py-4">
                                 {{ $user->phone_number }}
                             </td>
-                            <td scope="row" class="px-6 flex space-x-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <td scope="row" class="px-6 flex space-x-2 py-4">
                                 @foreach ($user->roles as $user_role)
                                     <form  class="inline-block"
                                     action="{{ route('admin.user.role.remove', [ $user->id , $user_role->id])}}"

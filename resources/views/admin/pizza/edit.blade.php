@@ -9,8 +9,8 @@
           </a>
         </div>
 
-        <div class="w-full mx-auto max-w-xl">
-          <form class="bg-slate-200 dark:bg-slate-800 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('admin.pizzas.update', $pizza->id) }}" method="post" enctype="multipart/form-data">
+        <div class="w-full mx-auto max-w-xl pb-5">
+          <form class="bg-[#C83B1A]/20 dark:bg-slate-800 shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('admin.pizzas.update', $pizza->id) }}" method="post" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             

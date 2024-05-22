@@ -1,5 +1,5 @@
 <x-admin-layout>
-  <div class="w-full py-12">
+  <div class="w-full py-3 lg:py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-4">
 
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista pizze</h2>
@@ -49,7 +49,7 @@
                             <td class="px-6 py-4 ">
                                 {{ number_format( $pizza->price_after_discount , 2 ) }}€
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 {{ $pizza->available ? 'text-green-500' : 'text-red-500' }}">
                                 {{ $pizza->available ? 'Disponibile' : 'Non disponibile' }}
                             </td>
                             <td>

@@ -15,7 +15,8 @@ class Order extends Model
     protected $fillable = [
         'user_id' ,
         'address_id' ,
-        'order_price'     
+        'order_price',
+        'status'    
     ];
 
     protected $appends = [
@@ -25,7 +26,24 @@ class Order extends Model
 
     public function getOrderStatusesAttribute()
     {
-        return ['pending', 'processing', 'shipped', 'completed'];
+        return [
+            'pending' => [
+                'text' => 'In Sospeso',
+                'color' => 'red-400'
+            ],
+            'processing' => [
+                'text' => 'In Preparazione',
+                'color' => 'yellow-400'
+            ],
+            'shipped' => [
+                'text' => 'Spedito',
+                'color' => 'gray-400'
+            ],
+            'completed' => [
+                'text' => 'Consegnato',
+                'color' => 'green-600'
+            ]
+        ];
     }
 
 
