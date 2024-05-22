@@ -10,8 +10,8 @@
             </a>
           </div>
 
-          <div class=" flex items-center justify-center text-white ">
-            <div class="w-full lg:max-w-4xl rounded overflow-hidden shadow-lg border dark:bg-slate-800 border-[#C83B1A] px-8 py-4">
+          <div class=" flex items-center justify-center text-white pb-5">
+            <div class="w-full lg:max-w-4xl rounded overflow-hidden shadow-lg border bg-[#C83B1A]/20 dark:bg-slate-800 border-[#C83B1A] px-8 py-4">
               <div class="content lg:flex">
                 <div class="lg:w-2/3">
                   <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-2">Dettagli cliente</h2>
@@ -36,7 +36,9 @@
                   <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-2">Dettagli ordine</h2>
                   <div>
                     <div class="my-2 flex justify-end">
-                      <p class="text-md font-semibold bg-green-500 w-fit px-3 rounded-lg uppercase">{{ $order->status }}</p>
+                      <p class="text-md font-semibold {{ 'bg-'. $order->order_statuses[$order->status]['color'] }} w-fit px-3 rounded-lg uppercase">
+                        {{ $order->order_statuses[$order->status]['text'] }}
+                      </p>
                     </div>
                     <p>Data ordine</p>
                     <span class="text-sm text-zinc-500 block">{{ $order->order_date_forHumans }}</span>
@@ -50,8 +52,12 @@
                       @csrf
                       @method('PUT')
                       <select name="status" id="status" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400  text-gray-700 mt-1 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" onchange="this.form.submit()">
-                        @foreach ($order->order_statuses as $status)
-                          <option value="{{ $status }}" {{ $order->status == $status ? 'selected' : '' }}>{{ $status }}</option>  
+                      
+                        @foreach ($order->order_statuses as $key => $status)
+    
+                          <option value="{{ $key }}" {{ $order->status == $key ? 'selected' : '' }}>
+                            {{ $status['text'] }}
+                          </option>  
                         @endforeach
                       </select>
                     </form>

@@ -1,6 +1,6 @@
 <x-admin-layout>
   <div class="w-full py-3 lg:py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-4">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-4 pb-5">
 
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista utenti</h2>
 

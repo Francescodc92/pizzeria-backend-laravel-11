@@ -9,7 +9,7 @@
         </div>
         
           <div class=" flex items-center justify-center text-white ">
-            <div class="w-full lg:max-w-4xl rounded overflow-hidden shadow-lg border dark:bg-slate-800 border-[#C83B1A] px-3 lg:px-8 py-4 lg:flex">
+            <div class="w-full lg:max-w-4xl rounded overflow-hidden shadow-lg border bg-[#C83B1A]/20 dark:bg-slate-800 border-[#C83B1A] px-3 lg:px-8 py-4 lg:flex">
               <div class="flex flex-col items-start justify-center lg:w-1/3 ">
                 <div class="w-full flex justify-center my-3 relative">
                   <img class="w-full max-w-[300px] object-contain" src="{{asset('storage/'. $pizza->image) }}" alt="{{ $pizza->name }}">

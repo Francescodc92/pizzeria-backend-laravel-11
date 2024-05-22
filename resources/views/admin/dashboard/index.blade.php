@@ -1,6 +1,6 @@
 <x-admin-layout>
   <div class="w-full py-4 lg:py-12 text-white">
-    <div class="max-w-8xl mx-auto sm:px-6 lg:px-4">   
+    <div class="max-w-8xl mx-auto sm:px-6 lg:px-4 pb-5">   
       <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Statistiche</h2>
       <div class="overflow-x-auto 2xl:flex space-y-3 2xl:space-x-4 2xl:space-y-0">
         
