@@ -15,7 +15,8 @@ class Order extends Model
     protected $fillable = [
         'user_id' ,
         'address_id' ,
-        'order_price'     
+        'order_price',
+        'status'    
     ];
 
     protected $appends = [

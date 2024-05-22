@@ -16,10 +16,6 @@
     - permettere la visualizzazione degli ordini terminati
     
   4. iniziare a lavorare sulla parte della dashboard (grafici per amministratore)
-    x numero acquisti nell'ultima settimana/mese/anno (grafico 1)
-    x numero acquisti negli ultimi 5 anni (per avere un resoconto dell'andamento nel tempo)(grafico 2)
-    x entrate nell'ultima settima/mese/anno (grafico 3)
-    x entrate negli ultimi 5 anni (per avere un resoconto dell'andamento nel tempo) (grafico 4)
     - (da pensare ) un grafico per il numero di utenti registrati se necessario
 
   ### Employee
@@ -32,6 +28,7 @@
       - creare la rotta per la visualizzazione degli ordini dell'utente
       - creare le rotte per le pizze
         - implementare il ritorno delle sole pizza disponibili 
+  2. permettere all'utente di poter eliminare gli ordini che ha fatto in precedenza (aggiungere un campo nella tabella che servirà a non far ritornare quell'ordine al frontend)
 
 
   ### future aggiunte

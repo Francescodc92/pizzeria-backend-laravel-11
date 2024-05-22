@@ -4,7 +4,6 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-use App\Models\OrderPizza;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -22,8 +21,18 @@ class OrderController extends Controller
         return view('admin.order.show', compact('order'));
     }
 
-    public function update()
+    public function update(Request $request, Order $order)
     {
-        dd('ci sono');
+        $request->validate([
+            'status' => 'required|in:pending,processing,shipped,completed',
+        ]);
+
+        try {
+            $order->update($request->only('status'));
+
+            return back()->with('message', 'Ordine modificato con successo!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Si è verificato un errore durante l\'aggiornamento dell\'ordine.');
+        }
     }
 }
