@@ -18,7 +18,19 @@
                           Data Ordine
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Stato
+                        <form action="{{ route('admin.orders.index') }}" method="GET">
+                            @csrf
+                            <select name="status" id="status" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400 text-gray-700 mt-1 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" onchange="this.form.submit()">
+                                <option value="">Tutti gli stati</option>
+                                @if (isset($orders[0]))
+                                    @foreach ($orders[0]->order_statuses as $key => $status)
+                                        <option value="{{ $key }}" {{ request('status') == $key ? 'selected' : '' }}>
+                                            {{ $status['text'] }}
+                                        </option>  
+                                    @endforeach
+                                @endif
+                            </select>
+                        </form>
                       </th>
                       <th scope="col" class="px-6 py-3">
                           Prezzo Totale

@@ -33,7 +33,7 @@ class Order extends Model
             ],
             'processing' => [
                 'text' => 'In Preparazione',
-                'color' => 'yellow-400'
+                'color' => 'yellow-600'
             ],
             'shipped' => [
                 'text' => 'Spedito',
