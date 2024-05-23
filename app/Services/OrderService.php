@@ -55,16 +55,16 @@ class OrderService
     {
         $dateStartOfYear = $today->copy()->startOfYear();
         $ordersThisYear = Order::whereBetween('order_date', [$dateStartOfYear, $today])->get();
-    
+
         $ordersCountByMonth = $ordersThisYear->groupBy(function ($order) {
-            return Carbon::parse($order->order_date)->format('F');
+            return Carbon::parse($order->order_date)->locale('it')->isoFormat('MMMM');
         })->map(function ($monthOrders) {
             return $monthOrders->count();
         });
-    
+
         $ordersPerMonth = [];
         for ($month = $dateStartOfYear->copy(); $month->lte($today); $month->addMonth()) {
-            $monthString = $month->format('F');
+            $monthString = $month->locale('it')->isoFormat('MMMM');
             $ordersPerMonth[$monthString] = $ordersCountByMonth->get($monthString, 0);
         }
 
@@ -140,14 +140,14 @@ class OrderService
         $ordersThisYear = Order::whereBetween('order_date', [$dateStartOfYear, $today])->get();
 
         $orderPriceSumByMonth = $ordersThisYear->groupBy(function ($order) {
-            return Carbon::parse($order->order_date)->locale('it')->monthName;
+            return Carbon::parse($order->order_date)->locale('it')->isoFormat('MMMM');
         })->map(function ($monthOrders) {
             return $monthOrders->sum('order_price');
         });
 
         $orderPriceSumPerMonth = [];
         for ($month = $dateStartOfYear->copy(); $month->lte($today); $month->addMonth()) {
-            $monthString = $month->locale('it')->monthName;
+            $monthString = $month->locale('it')->isoFormat('MMMM');
             $orderPriceSumPerMonth[$monthString] = $orderPriceSumByMonth->get($monthString, 0);
         }
 
@@ -174,3 +174,4 @@ class OrderService
         return $orderPriceSumPerYear;
     }
 }
+
