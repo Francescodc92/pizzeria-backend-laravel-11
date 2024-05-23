@@ -9,9 +9,9 @@ class OrderService
 {
     public function getOrdersLastWeek($today)
     {
-        $dateLastWeek = $today->copy()->subDays(7);
-        $ordersLastWeek = Order::whereBetween('order_date', [$dateLastWeek, $today])->get();
-    
+        $dateLastWeek = $today->copy()->subDays(6);
+        $ordersLastWeek = Order::whereBetween('order_date', [$dateLastWeek->startOfDay(), $today->endOfDay()])->get();
+
         $ordersCountByDayLastWeek = $ordersLastWeek->groupBy(function ($order) {
             return Carbon::parse($order->order_date)->format('Y-m-d');
         })->map(function ($dayOrders) {
@@ -19,12 +19,14 @@ class OrderService
         });
     
         $ordersPerDayLastWeek = [];
+    
         for ($date = $dateLastWeek->copy(); $date->lte($today); $date->addDay()) {
             $dateString = $date->format('Y-m-d');
             $dayName = $date->locale('it')->dayName;
             $ordersPerDayLastWeek[$dayName] = $ordersCountByDayLastWeek->get($dateString, 0);
         }
 
+    
         return $ordersPerDayLastWeek;
     }
 
@@ -92,7 +94,7 @@ class OrderService
     // Funzioni per la somma dell'order_price
     public function getOrderPriceSumLastWeek($today)
     {
-        $dateLastWeek = $today->copy()->subDays(7);
+        $dateLastWeek = $today->copy()->subDays(6);
         $ordersLastWeek = Order::whereBetween('order_date', [$dateLastWeek, $today])->get();
 
         $orderPriceSumByDay = $ordersLastWeek->groupBy(function ($order) {

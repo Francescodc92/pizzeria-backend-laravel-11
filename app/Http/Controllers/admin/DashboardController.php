@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 use App\Services\OrderService;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -19,7 +17,7 @@ class DashboardController extends Controller
 
     public function index()
     {   $today = Carbon::now();
- // Ottieni il numero di ordini
+        // Ottieni il numero di ordini
         $ordersPerDayLastWeek = $this->orderService->getOrdersLastWeek($today);
         $ordersPerDayThisMonth = $this->orderService->getOrdersThisMonth($today);
         $ordersPerMonth = $this->orderService->getOrdersLastYear($today);

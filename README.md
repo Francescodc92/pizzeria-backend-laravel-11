@@ -9,7 +9,6 @@
   ### Admin 
 
   1. sistemare il componente di paginazione default di laravel
-  2. sistemare l'update dell'order (da fare)
 
   3. filtrare gli ordini già completi perché non vengano  visualizzati
     - premetter il riordinamento in base ai campi cliccati nella table 
