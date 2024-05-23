@@ -11,8 +11,10 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $searchStatus = $request->query('status');
+        $orderBy = $request->query('orderBy', 'DESC');
 
-        $query = Order::orderBy('order_date', 'DESC');
+        
+        $query = Order::orderBy('order_date', $orderBy);
 
         if (!empty($searchStatus)) {
             $query->where('status', 'like' ,'%' . $searchStatus . '%');
@@ -20,9 +22,9 @@ class OrderController extends Controller
 
         $orders = $query->paginate(10);
 
-        $orders->appends(['status' => $searchStatus]);
+        $orders->appends(['status' => $searchStatus, 'orderBy' => $orderBy]);
 
-        return view('admin.order.index', compact('orders', 'searchStatus'));
+        return view('admin.order.index', compact('orders'));
     }
 
     public function show(Order $order)

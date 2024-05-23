@@ -15,11 +15,15 @@
                           Utente
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Data Ordine
-                      </th>
-                      <th scope="col" class="px-6 py-3">
                         <form action="{{ route('admin.orders.index') }}" method="GET">
                             @csrf
+                            <select name="orderBy" id="orderBy" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400 text-gray-700 mt-1 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" onchange="this.form.submit()">
+                                <option value="DESC" {{ request('orderBy') == 'DESC' ? 'selected' : '' }}>Ordini Recenti</option>
+                                <option value="ASC" {{ request('orderBy') == 'ASC' ? 'selected' : '' }}>Meno Recente</option>
+                            </select>
+                        
+                      </th>
+                      <th scope="col" class="px-6 py-3">
                             <select name="status" id="status" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400 text-gray-700 mt-1 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" onchange="this.form.submit()">
                                 <option value="">Tutti gli stati</option>
                                 @if (isset($orders[0]))
