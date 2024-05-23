@@ -10,7 +10,7 @@
             <label for="orderTimeSelect" class="text-light">
               Periodo
             </label>
-            <select id="orderTimeSelect" class="form-select w-auto mt-2 text-black">
+            <select id="orderTimeSelect" class="block appearance-none w-1/3 dark:bg-gray-400 border border-gray-400  text-gray-700 my-1 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500 ">
                 <option value="week">Ultimi 7 giorni</option>
                 <option value="month">Questo Mese</option>
                 <option value="year">Questo Anno</option>
@@ -24,7 +24,7 @@
             <label for="orderPriceTimeSelect" class="text-light">
               Periodo
             </label>
-            <select id="orderPriceTimeSelect" class="form-select w-auto mt-2 text-black">
+            <select id="orderPriceTimeSelect" class="block appearance-none w-1/3 dark:bg-gray-400 border border-gray-400  text-gray-700 my-1 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500 ">
                 <option value="week">Ultimi 7 giorni</option>
                 <option value="month">Questo Mese</option>
                 <option value="year">Questo Anno</option>

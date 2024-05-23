@@ -27,22 +27,10 @@ class Order extends Model
     public function getOrderStatusesAttribute()
     {
         return [
-            'pending' => [
-                'text' => 'In Sospeso',
-                'color' => 'red-400'
-            ],
-            'processing' => [
-                'text' => 'In Preparazione',
-                'color' => 'yellow-600'
-            ],
-            'shipped' => [
-                'text' => 'Spedito',
-                'color' => 'gray-400'
-            ],
-            'completed' => [
-                'text' => 'Consegnato',
-                'color' => 'green-600'
-            ]
+            'pending' => 'In Sospeso',
+            'processing' => 'In Preparazione',
+            'shipped' =>'Spedito',
+            'completed' => 'Consegnato'
         ];
     }
 

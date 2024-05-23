@@ -29,7 +29,7 @@
                                 @if (isset($orders[0]))
                                     @foreach ($orders[0]->order_statuses as $key => $status)
                                         <option value="{{ $key }}" {{ request('status') == $key ? 'selected' : '' }}>
-                                            {{ $status['text'] }}
+                                            {{ $status }}
                                         </option>  
                                     @endforeach
                                 @endif
@@ -57,8 +57,21 @@
                             {{ $order->order_date_forHumans }}
                           </td>
                           <td class="px-6 py-4 ">
-                            <span class="{{ 'text-'. $order->order_statuses[$order->status]['color'] }}">
-                                {{ $order->order_statuses[$order->status]['text'] }}
+                            @php
+                              $statusColors = [
+                                  'pending' => 'text-red-400',
+                                  'processing' => 'text-yellow-400',
+                                  'shipped' =>'text-blue-400',
+                                  'completed' => 'text-green-400'
+                                ];
+        
+                                
+                                $statusColor = $statusColors[$order->status];
+                                
+                            @endphp
+
+                            <span class="font-medium {{ $statusColor }}">
+                                {{ $order->order_statuses[$order->status] }}
                             </span>
                           </td>
                           <td class="px-6 py-4">

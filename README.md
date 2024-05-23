@@ -9,10 +9,6 @@
   ### Admin 
 
   1. sistemare il componente di paginazione default di laravel
-
-  3. filtrare gli ordini già completi perché non vengano  visualizzati
-    - premetter il riordinamento in base ai campi cliccati nella table 
-    - permettere la visualizzazione degli ordini terminati
     
   4. iniziare a lavorare sulla parte della dashboard (grafici per amministratore)
     - (da pensare ) un grafico per il numero di utenti registrati se necessario

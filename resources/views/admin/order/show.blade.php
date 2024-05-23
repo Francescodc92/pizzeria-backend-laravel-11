@@ -36,8 +36,19 @@
                   <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-2">Dettagli ordine</h2>
                   <div>
                     <div class="my-2 flex justify-end">
-                      <p class="text-md font-semibold {{ 'bg-'. $order->order_statuses[$order->status]['color'] }} w-fit px-3 rounded-lg uppercase">
-                        {{ $order->order_statuses[$order->status]['text'] }}
+                      @php
+                        $statusColors = [
+                          'pending' => 'bg-red-400',
+                          'processing' => 'bg-yellow-400',
+                          'shipped' =>'bg-blue-400',
+                          'completed' => 'bg-green-400'
+                        ];
+
+                        $statusColor = $statusColors[$order->status];
+                       
+                      @endphp
+                      <p class="text-md font-semibold w-fit px-3 rounded-lg uppercase text-white {{ $statusColor }}">
+                        {{ $order->order_statuses[$order->status] }}
                       </p>
                     </div>
                     <p>Data ordine</p>
@@ -56,7 +67,7 @@
                         @foreach ($order->order_statuses as $key => $status)
     
                           <option value="{{ $key }}" {{ $order->status == $key ? 'selected' : '' }}>
-                            {{ $status['text'] }}
+                            {{ $status }}
                           </option>  
                         @endforeach
                       </select>
