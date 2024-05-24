@@ -18,7 +18,7 @@
 
             <div class="flex items-center justify-between mt-2">
               <button class="font-medium inline-block text-yellow-600 dark:text-yellow-500 hover:underline px-4 py-2 border rounded-md hover:bg-yellow-500 hover:text-white border-yellow-500" type="submit">
-                Edit
+                Modifica
               </button>
             </div>
           </form>
