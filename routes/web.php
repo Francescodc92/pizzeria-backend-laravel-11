@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-//controllers
+//controllers admin
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\PizzaController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\employee\EmployeeOrderController;
+//controllers employee
+use App\Http\Controllers\employee\EmployeePizzaController;
+use App\Http\Controllers\employee\EmployeeUserController;
 
 
 Route::get('/', function () {
@@ -24,14 +28,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+//admin routes
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
+    //pizzas
     Route::resource('/pizzas', PizzaController::class);
-    Route::resource('/users', UserController::class);
-    Route::resource('/orders', OrderController::class);
+    //users
+    Route::resource('/users', UserController::class)->only(['index', 'show']);
     Route::post('/users/{user}/roles', [UserController::class , 'assignRole'])->name('user.role');
     Route::delete('/users/{user}/role/{role}', [UserController::class, 'removeRole'])->name('user.role.remove');
+    //orders
+    Route::resource('/orders', OrderController::class)->only(['index', 'show', 'update']);
+    //dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+
+//employee routes
+Route::middleware(['auth', 'role:admin|employee'])->name('employee.')->prefix('employee')->group(function () {
+    //pizzas
+    Route::resource('/pizzas', EmployeePizzaController::class)->only(['index', 'show']);
+    //users
+    Route::resource('/users', EmployeeUserController::class)->only(['index', 'show']);
+    // //orders
+    Route::resource('/orders', EmployeeOrderController::class)->only(['index', 'show', 'update']);
 });
 
 require __DIR__.'/auth.php';

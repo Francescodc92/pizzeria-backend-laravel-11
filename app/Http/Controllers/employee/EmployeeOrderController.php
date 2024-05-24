@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\employee;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\OrderTrait;
 
-class OrderController extends Controller
+class EmployeeOrderController extends Controller
 {
     use OrderTrait;
     
     protected function getViewPrefix()
     {
-        return 'admin';
+        return 'employee';
     }
 }

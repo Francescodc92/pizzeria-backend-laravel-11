@@ -3,32 +3,20 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\UserTrait;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+    use UserTrait;
+
+    protected function getViewPrefix()
     {
-        $searchTerm = $request->input('search', '');
-
-        $users = User::where('first_name', 'like', "%$searchTerm%")
-                    ->orWhere('last_name', 'like', "%$searchTerm%")
-                    ->orWhere('email', 'like', "%$searchTerm%")
-                    ->paginate(8);
-
-        $roles = Role::all();
-
-
-        return view('admin.user.index', compact('users', 'roles', 'searchTerm'));
+        return 'admin';
     }
 
-    public function show(User $user)
-    {
-        $roles = Role::all();
-        return view('admin.user.show', compact('user', 'roles'));
-    }
 
     public function assignRole(Request $request , User $user)
     {

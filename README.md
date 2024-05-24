@@ -8,27 +8,10 @@
 ## TODO
   ### Admin 
   4. (da pensare ) un grafico per il numero di utenti registrati se necessario
-
-  ### Employee
-  1. creare un layout per i dipendenti con un componente navigation specifico in modo da mostrare le rotte specifiche 
-      - al login aggiungere l'accesso diretto alla rotta employees come fatto per gli admin
-    
-    pagine necessarie
-      - pizze
-          - index (senza la possibilità di modificare, creare o cancellare)
-          - show (solo visualizzazione)
-      - utenti
-          - index (solo visualizzazione e ricerca)
-          - show (visualizzazione info e lista ordini)
-      - ordini
-          - index (visualizzazione, filtraggio)
-          - show (cambio stato ordine, visualizzazione utente e pizza)
-      - statistiche non accessibili
-
-    - creare le rotte 
-    - creare i controllers
-    - creare le viste modificate per i dipendenti
       
+  ### User
+  1. creare una rotta dove mandare gli user (se fanno il login dal backend) tipo una welcome con il link per riportare al frontend
+
   ### User (api)
   decidere se modificare il vecchio frontend o se ricostruirlo da 0 (molto probabilmente ricostruirlo)
   1. sistemare il frontend perche funzioni con il nuovo backend (temporaneamente)

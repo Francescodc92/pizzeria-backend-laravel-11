@@ -30,6 +30,8 @@ class AuthenticatedSessionController extends Controller
 
         if(Auth::user()->hasRole('admin')) {
             return redirect()->intended(route('admin.pizzas.index', absolute: false));
+        }elseif(Auth::user()->hasRole('employee')) {
+            return redirect()->intended(route('employee.pizzas.index', absolute: false));
         }
 
         return redirect()->intended(route('dashboard', absolute: false));

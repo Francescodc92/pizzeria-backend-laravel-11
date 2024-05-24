@@ -17,10 +17,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased min-h-full">
-        @include('layouts.admin-session-message')
+        @include('layouts.employees.employee-session-message')
         <!-- Page Content -->
         <main class="flex-col w-full lg:flex lg:flex-row h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.admin-navigation')
+            @include('layouts.employees.employee-navigation')
             <div class="flex w-full  px-3 bg-center dark:bg-[url('img/cielostellato.PNG')] overflow-auto bg-cover">
                 {{ $slot }}
             </div>
