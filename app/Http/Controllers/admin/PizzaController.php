@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\PizzaTrait;
 use App\Http\Requests\Pizzas\StorePizzaRequest;
 use App\Http\Requests\Pizzas\UpdatePizzaRequest;
 use App\Models\Pizza;
@@ -12,11 +13,11 @@ use Illuminate\Http\Request;
 
 class PizzaController extends Controller
 {
-    public function index()
-    {
-        $pizzas = Pizza::paginate(8);
+    use PizzaTrait;
 
-        return view('admin.pizza.index', compact('pizzas'));
+    protected function getViewPrefix()
+    {
+        return 'admin';
     }
 
     public function create() 
@@ -40,10 +41,7 @@ class PizzaController extends Controller
         return redirect()->route('admin.pizzas.index')->with('message', 'Pizza creata con successo!');
     }
 
-    public function show(Pizza $pizza)
-    {
-        return view('admin.pizza.show', compact('pizza'));
-    }
+  
 
     public function edit(Pizza $pizza)
     {
