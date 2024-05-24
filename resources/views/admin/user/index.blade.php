@@ -85,6 +85,9 @@
                                             @csrf
                                             
                                             <select onchange="this.form.submit()" id="roles" name="role" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400  text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" >
+                                                <option class="text-gray-400" value="" >
+                                                    Seleziona un ruolo    
+                                                </option>
                                                 @foreach ($roles as $role)
                                                     <option value="{{ $role->name }}" >
                                                         {{ ($role->name == 'admin') ? 'Amministratore' : (($role->name == 'employee') ? 'Dipendente' : 'Utente') }}    

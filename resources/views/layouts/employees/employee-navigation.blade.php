@@ -17,7 +17,7 @@
         <x-admin-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.*')">Ordini</x-admin-link>
         <x-admin-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">Statistiche</x-admin-link> --}}
         @role('admin')
-            <x-admin-link href="{{ route('admin.pizzas.index') }}">Sezione Amministratori</x-admin-link> 
+            <x-admin-link href="{{ route('admin.pizzas.index') }}">Dashboard Amministratori</x-admin-link> 
         @endrole
 
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
