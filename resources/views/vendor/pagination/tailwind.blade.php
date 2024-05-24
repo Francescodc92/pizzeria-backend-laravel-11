@@ -25,16 +25,16 @@
         <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
             <div>
                 <p class="text-sm text-gray-700 leading-5 dark:text-gray-400">
-                    {!! __('Risultati') !!}
+                    {!! __('Risultati da') !!}
                     @if ($paginator->firstItem())
-                        <span class="font-medium">{{ $paginator->firstItem() }}</span>
+                        <span class="font-medium text-[#C83B1A]">{{ $paginator->firstItem() }}</span>
                         {!! __('a') !!}
-                        <span class="font-medium">{{ $paginator->lastItem() }}</span>
+                        <span class="font-medium text-[#C83B1A]">{{ $paginator->lastItem() }}</span>
                     @else
                         {{ $paginator->count() }}
                     @endif
                     {!! __('di') !!}
-                    <span class="font-medium">{{ $paginator->total() }}</span>
+                    <span class="font-medium text-[#C83B1A]">{{ $paginator->total() }}</span>
                     {!! __('totali') !!}
                 </p>
             </div>
