@@ -7,7 +7,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\PizzaController;
 use App\Http\Controllers\admin\UserController;
-
+use App\Http\Controllers\employee\EmployeeOrderController;
 //controllers employee
 use App\Http\Controllers\employee\EmployeePizzaController;
 use App\Http\Controllers\employee\EmployeeUserController;
@@ -50,7 +50,7 @@ Route::middleware(['auth', 'role:admin|employee'])->name('employee.')->prefix('e
     //users
     Route::resource('/users', EmployeeUserController::class)->only(['index', 'show']);
     // //orders
-    // Route::resource('/orders', OrderController::class)->only(['index', 'show', 'update']);
+    Route::resource('/orders', EmployeeOrderController::class)->only(['index', 'show', 'update']);
 });
 
 require __DIR__.'/auth.php';
