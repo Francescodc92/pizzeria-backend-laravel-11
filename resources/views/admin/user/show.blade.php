@@ -81,7 +81,7 @@
              
               <div class="mt-7">
                 <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-2">Ordini effettuati</h2>
-                <div class="h-[250px] overflow-auto">
+                <div class="h-[250px] overflow-y-auto">
                   <table class="rounded-lg min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-600 dark:text-gray-400">
                         <tr>
@@ -105,6 +105,7 @@
                             </th>
                         </tr>
                     </thead>
+                  
                     <tbody>
                         @foreach ($user->orders as $order)
                             <tr class="bg-slate-100 min-w-fit border-b-2 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A]">
@@ -132,7 +133,9 @@
                           </tr>
                           @endforeach
                           
-                      </tbody> 
+                    </tbody> 
+
+                    
       
                   </table>
                 </div>

@@ -71,7 +71,7 @@
             </table>
             <div class="py-2 px-3 text-xs text-gray-700 bg-gray-200 dark:bg-gray-600 dark:text-gray-400">
 
-                {{ $pizzas->links() }}
+                {{ $pizzas->onEachSide(1)->links() }}
             </div>
         </div>
 
