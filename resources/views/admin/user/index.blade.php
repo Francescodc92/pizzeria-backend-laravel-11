@@ -20,7 +20,7 @@
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                                 </svg>
                                             </div>
-                                            <input type="search" id="serch-input" name="search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="cerca per nome/email" value="{{ $searchTerm }}">
+                                            <input type="search" id="serch-input" name="search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="cerca per nome/email" value="{{ request()->query('search') }}">
                                             <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cerca</button>
                                         </div>
                                     </div>
@@ -42,7 +42,18 @@
                             Contatto
                         </th>
                     <th scope="col" class="px-6 py-3">
-                        Ruoli Utente
+                        <form method="GET" action="{{ route('admin.users.index') }}" class="flex gap-3 items-center justify-end rounded px-2">
+                            <select onchange="this.form.submit()" id="roles" name="role" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500">
+                                <option class="text-gray-400" value="">
+                                    Tutti i ruoli    
+                                </option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->name }}" {{ request()->query('role') == $role->name ? 'selected' : '' }}>
+                                        {{ ($role->name == 'admin') ? 'Amministratore' : (($role->name == 'employee') ? 'Dipendente' : 'Utente') }}    
+                                    </option>
+                                @endforeach
+                            </select>
+                        </form>
                     </th>
                     <th scope="col" class="px-6 py-3 text-right">
                         Assegna ruolo

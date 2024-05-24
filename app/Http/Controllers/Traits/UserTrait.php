@@ -9,17 +9,30 @@ trait UserTrait
 {
     public function index(Request $request)
     {
-        $searchTerm = $request->input('search', '');
-
-        $users = User::where('first_name', 'like', "%$searchTerm%")
-                    ->orWhere('last_name', 'like', "%$searchTerm%")
-                    ->orWhere('email', 'like', "%$searchTerm%")
-                    ->paginate(8);
-
         $roles = Role::all();
+        $searchTerm = $request->input('search', '');
+        $selectedRole = $request->query('role', '');
 
+        $usersQuery = User::query();
 
-        return view($this->getViewPrefix() .'.user.index', compact('users', 'roles', 'searchTerm'));
+        $usersQuery->where(function ($query) use ($searchTerm) {
+            $query->where('first_name', 'like', "%$searchTerm%")
+                  ->orWhere('last_name', 'like', "%$searchTerm%")
+                  ->orWhere('email', 'like', "%$searchTerm%");
+        });
+
+        if ($selectedRole !== '') {
+            $usersQuery->whereHas('roles', function ($query) use ($selectedRole) {
+                $query->where('name', $selectedRole);
+            });
+        }
+
+        $users = $usersQuery->paginate(8)->appends([
+            'search' => $searchTerm,
+            'role' => $selectedRole
+        ]);
+
+        return view($this->getViewPrefix() .'.user.index', compact('users', 'roles'));
     }
 
     public function show(User $user)
