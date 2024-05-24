@@ -8,13 +8,10 @@
 ## TODO
   ### Admin 
   4. (da pensare ) un grafico per il numero di utenti registrati se necessario
-  5. aggiungere un filtro in base al ruolo dell'utente 
-
-  ### Employee  
-  2. aggiungere un filtro in base al ruolo dell'utente 
       
   ### User
   1. creare una rotta dove mandare gli user (se fanno il login dal backend) tipo una welcome con il link per riportare al frontend
+
   ### User (api)
   decidere se modificare il vecchio frontend o se ricostruirlo da 0 (molto probabilmente ricostruirlo)
   1. sistemare il frontend perche funzioni con il nuovo backend (temporaneamente)

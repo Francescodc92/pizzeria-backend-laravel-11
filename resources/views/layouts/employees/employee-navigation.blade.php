@@ -1,6 +1,6 @@
 <div @click.away="open = false" class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white border-r-2 dark:border-e-2 border-[#C83B1A] lg:w-60 dark:text-gray-200 dark:bg-gray-900/85" x-data="{ open: false }">
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-        <a href="{{ route('dashboard') }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
+        <a href="{{ route('employee.pizzas.index') }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
             <img class="hidden lg:block mx-w-[150px]" src="{{ asset('assets/img/logo.png') }}" alt="">
             Don Peppe
         </a>
