@@ -7,9 +7,10 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\PizzaController;
 use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\employee\EmployeePizzaController;
 
 //controllers employee
+use App\Http\Controllers\employee\EmployeePizzaController;
+use App\Http\Controllers\employee\EmployeeUserController;
 
 
 Route::get('/', function () {
@@ -46,10 +47,8 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 Route::middleware(['auth', 'role:admin|employee'])->name('employee.')->prefix('employee')->group(function () {
     //pizzas
     Route::resource('/pizzas', EmployeePizzaController::class)->only(['index', 'show']);
-    // //users
-    // Route::resource('/users', UserController::class)->only(['index', 'show']);
-    // Route::post('/users/{user}/roles', [UserController::class , 'assignRole'])->name('user.role');
-    // Route::delete('/users/{user}/role/{role}', [UserController::class, 'removeRole'])->name('user.role.remove');
+    //users
+    Route::resource('/users', EmployeeUserController::class)->only(['index', 'show']);
     // //orders
     // Route::resource('/orders', OrderController::class)->only(['index', 'show', 'update']);
 });

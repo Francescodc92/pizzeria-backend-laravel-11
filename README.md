@@ -8,15 +8,16 @@
 ## TODO
   ### Admin 
   4. (da pensare ) un grafico per il numero di utenti registrati se necessario
+  5. aggiungere un filtro in base al ruolo dell'utente 
 
   ### Employee
   1. creare un layout per i dipendenti con un componente navigation specifico in modo da mostrare le rotte specifiche 
       - al login aggiungere l'accesso diretto alla rotta employees come fatto per gli admin
     
     pagine necessarie
-      - pizze
-          - index (senza la possibilità di modificare, creare o cancellare)
-          - show (solo visualizzazione)
+      X pizze
+          X index (senza la possibilità di modificare, creare o cancellare)
+          X show (solo visualizzazione)
       - utenti
           - index (solo visualizzazione e ricerca)
           - show (visualizzazione info e lista ordini)
@@ -28,6 +29,8 @@
     - creare le rotte 
     - creare i controllers
     - creare le viste modificate per i dipendenti
+
+  2. aggiungere un filtro in base al ruolo dell'utente 
       
   ### User (api)
   decidere se modificare il vecchio frontend o se ricostruirlo da 0 (molto probabilmente ricostruirlo)

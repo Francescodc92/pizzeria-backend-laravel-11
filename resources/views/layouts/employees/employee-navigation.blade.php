@@ -13,8 +13,8 @@
     </div>
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 lg:block lg:pb-0 lg:overflow-y-auto">
         <x-admin-link href="{{ route('employee.pizzas.index') }}" :active="request()->routeIs('employee.pizzas.*')">Pizze</x-admin-link>
-        {{-- <x-admin-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.*')">Utenti</x-admin-link>
-        <x-admin-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.*')">Ordini</x-admin-link>
+        <x-admin-link href="{{ route('employee.users.index') }}" :active="request()->routeIs('employee.users.*')">Utenti</x-admin-link>
+        {{-- <x-admin-link href="{{ route('admin.orders.index') }}" :active="request()->routeIs('admin.orders.*')">Ordini</x-admin-link>
         <x-admin-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">Statistiche</x-admin-link> --}}
         @role('admin')
             <x-admin-link href="{{ route('admin.pizzas.index') }}">Dashboard Amministratori</x-admin-link> 
