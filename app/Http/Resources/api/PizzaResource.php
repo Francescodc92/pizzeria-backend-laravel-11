@@ -17,11 +17,11 @@ class PizzaResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'full_image_path' => $this->full_image_path,
+            'fullImagePath' => $this->full_image_path,
             'description' => $this->description,
             'price' => $this->price,
-            'discount_percent' => $this->discount_percent,
-            'price_after_discount' => $this->price_after_discount,
+            'discountPercent' => $this->discount_percent,
+            'priceAfterDiscount' => $this->price_after_discount,
         ];
     }
 }
