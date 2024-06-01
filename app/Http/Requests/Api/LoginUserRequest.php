@@ -30,7 +30,7 @@ class LoginUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            "email.required" => "L'email è obbligatoria.",
+            "email.required" => "Email non fornita.",
             "email.email" => "L'email deve essere un indirizzo email valido.",
             "password.required" => "La password è obbligatoria.",
             "password.min" => "La password deve essere di almeno 8 caratteri.",

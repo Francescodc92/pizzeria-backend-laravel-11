@@ -15,15 +15,12 @@ class AuthController extends Controller
 {
     public function login(LoginUserRequest $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
             $user = Auth::user();
-            return  new  UserResource($user);
+            $userResource =  new  UserResource($user);
+
+            return response()->json(['message' => 'Login effettuato con successo!', 'data' => $userResource], 200);
         }
 
         return response()->json(['error' => 'Le credenziali inserite non sono corrette!'], 400);
@@ -53,7 +50,7 @@ class AuthController extends Controller
         return response()->json(['message' => 'Logout effettuato con successo!'], 200);
     }
 
-    public function user(Request $request)
+    public function user()
     {
         $user = Auth::user();
         return  new  UserResource($user);
