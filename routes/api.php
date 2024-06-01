@@ -7,9 +7,7 @@ use App\Http\Controllers\api\auth\AuthController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\PizzaController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum');
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api\auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\LoginUserRequest;
 use App\Http\Requests\Api\RegisterUserRequest;
+use App\Http\Resources\api\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +15,15 @@ class AuthController extends Controller
 {
     public function login(LoginUserRequest $request)
     {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-        if (Auth::attempt($request->only('email', 'password'))) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $user = auth()->user();
-            return response()->json($user);
+            $user = Auth::user();
+            return  new  UserResource($user);
         }
 
         return response()->json(['error' => 'Le credenziali inserite non sono corrette!'], 400);
@@ -47,4 +52,11 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Logout effettuato con successo!'], 200);
     }
+
+    public function user(Request $request)
+    {
+        $user = Auth::user();
+        return  new  UserResource($user);
+    }
+
 }

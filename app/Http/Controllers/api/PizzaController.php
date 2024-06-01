@@ -11,14 +11,14 @@ class PizzaController extends Controller
 {
     public function index()
     {
-        $pizzas = Pizza::where('available','!=', 0)->orderByDesc('discount_percent')->paginate(10);
+        $pizzas = Pizza::where('available','!=', 0)->orderByDesc('discount_percent')->paginate(6);
 
         return PizzaResource::collection($pizzas);
     }
 
     public function pizzasWithDiscount()
     {
-        $pizzas = Pizza::where('discount_percent', '>', 0)->paginate(10);  
+        $pizzas = Pizza::where('discount_percent', '>', 0)->get();  
 
         return PizzaResource::collection($pizzas);
     }
