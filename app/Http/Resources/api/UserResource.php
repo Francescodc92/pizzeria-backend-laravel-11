@@ -21,7 +21,7 @@ class UserResource extends JsonResource
             'phoneNumber' => $this->phone_number,
             'email' => $this->email,
             'role' => $this->getRoleNames(),
-            'address'=> AddressResource::collection($this->addresses)
+            'addresses'=> AddressResource::collection($this->addresses)
         ];
     }
 }

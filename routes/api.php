@@ -6,13 +6,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\auth\AuthController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\PizzaController;
+use App\Http\Controllers\api\UserController;
 
 Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum');
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('orders/generate', [OrderController::class, 'generateFrontToken']);
-    Route::post('orders/make/payment', [OrderController::class, 'makePayment']);
+    Route::post('/user/address',[UserController::class, 'updateUserAddress']);
+    Route::get('/orders/generate/token', [OrderController::class, 'generateFrontToken']);
+    Route::post('/orders/make/payment', [OrderController::class, 'makePayment']);
 });
 
 Route::name('api.')->group(function () {

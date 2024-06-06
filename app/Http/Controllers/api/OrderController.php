@@ -40,12 +40,7 @@ class OrderController extends Controller
         ])->first();
 
         if ($userAddress == null) {
-            $userAddress = $user->addresses()->create([
-                'road' => $requestAddress['road'],
-                'city' => $requestAddress['city'],
-                'country' => $requestAddress['country'],
-                'zip_code' => $requestAddress['zip_code']
-            ]);
+            return response()->json(['success' => false, 'message' => 'indirizzo non trovato'], 400);
         }
 
         foreach ($pizzasArray as $pizzaReq) {

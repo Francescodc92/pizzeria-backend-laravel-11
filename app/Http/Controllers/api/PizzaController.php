@@ -11,7 +11,7 @@ class PizzaController extends Controller
 {
     public function index()
     {
-        $pizzas = Pizza::where('available','!=', 0)->orderByDesc('discount_percent')->paginate(6);
+        $pizzas = Pizza::where('available','!=', 0)->orderByDesc('discount_percent')->paginate(8);
 
         return PizzaResource::collection($pizzas);
     }
@@ -24,6 +24,9 @@ class PizzaController extends Controller
     }
     
     public function show(Pizza $pizza){
+        if($pizza->available == 0){
+            abort(404);
+        }
         return new PizzaResource($pizza);
     }
 }
