@@ -23,11 +23,10 @@
 
 decidere se modificare il vecchio frontend o se ricostruirlo da 0 (molto probabilmente ricostruirlo)
 
-1.  -   adattare le rotte api del progetto con laravel10 alle nuove rotte laravel11 (cambiare i campi modificati nel nuovo progetto)
-    -   creare la rotta per la visualizzazione degli ordini dell'utente
-    -   creare le rotte per le pizze
-        -   implementare il ritorno delle sole pizza disponibili
+1.  -   creare la rotta per la visualizzazione degli ordini dell'utente
+    -   implementare il ritorno delle sole pizza disponibili
 2.  permettere all'utente di poter eliminare gli ordini che ha fatto in precedenza (aggiungere un campo nella tabella che servirà a non far ritornare quell'ordine al frontend)
+3.  aggiungere la rotta per eliminare un indirizzo registrato dall'utente
 
 ### future aggiunte
 

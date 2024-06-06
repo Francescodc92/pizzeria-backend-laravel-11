@@ -12,7 +12,8 @@ Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum')
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::post('/user/address',[UserController::class, 'updateUserAddress']);
+    Route::post('/user/address', [UserController::class, 'updateUserAddress']);
+    Route::delete('/user/address/{addressId}', [UserController::class, 'deleteUserAddress']);
     Route::get('/orders/generate/token', [OrderController::class, 'generateFrontToken']);
     Route::post('/orders/make/payment', [OrderController::class, 'makePayment']);
 });

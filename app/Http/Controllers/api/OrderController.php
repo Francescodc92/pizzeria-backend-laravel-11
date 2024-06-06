@@ -9,6 +9,7 @@ use App\Models\Pizza;
 use App\Models\User;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -27,20 +28,17 @@ class OrderController extends Controller
     {
 
         $pizzasArray = $request->pizzas;
-        $requestAddress = $request->userAddress;  // deve essere un array [road, city, country, zip_code]
+        $requestAddress = $request->userAddress;  
+
         $amount = 0;
 
+        $user = User::where('id', Auth::user()->id)->with('addresses')->firstOrFail();
+    
+        $userAddress = $user->addresses()->whereId($requestAddress['id'])->get()->first();
 
-        $user = auth()->user();
-        $userAddress = $user->addresses()->where([
-            ['road', $requestAddress['road']],
-            ['city', $requestAddress['city']],
-            ['country', $requestAddress['country']],
-            ['zip_code', $requestAddress['zip_code']]
-        ])->first();
 
-        if ($userAddress == null) {
-            return response()->json(['success' => false, 'message' => 'indirizzo non trovato'], 400);
+        if ($userAddress === null) {
+            return response()->json(['success' => false, 'message' => 'Indirizzo non trovato'], 400);
         }
 
         foreach ($pizzasArray as $pizzaReq) {
@@ -63,7 +61,6 @@ class OrderController extends Controller
             ]
         ]);
 
-
         if (!$result->success) {
             $errorMessages = $result->message;
             if (isset($result->errors)) {
@@ -78,7 +75,6 @@ class OrderController extends Controller
             ], 401);
         }
 
-
         $order = new Order([
             'user_id' => $user->id,
             'address_id' => $userAddress->id,
@@ -86,7 +82,6 @@ class OrderController extends Controller
         ]);
 
         $order->save();
-        
         
         foreach ($pizzasArray as $pizzaReq) {
             $pizzaIndex = $pizzaReq['pizza'];
@@ -105,10 +100,9 @@ class OrderController extends Controller
                 'created_at' => $result->transaction->createdAt->format('Y-m-d H:i:s')
             ]
         ];
-        
-
 
         return response()->json($data, 200);
     }
+    
 
 }
