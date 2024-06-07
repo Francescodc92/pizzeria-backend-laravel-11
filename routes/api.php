@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 // controllers
 use App\Http\Controllers\api\auth\AuthController;
@@ -16,6 +15,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/user/address/{addressId}', [UserController::class, 'deleteUserAddress']);
     Route::get('/orders/generate/token', [OrderController::class, 'generateFrontToken']);
     Route::post('/orders/make/payment', [OrderController::class, 'makePayment']);
+    Route::get('/orders', [OrderController::class, 'getUserOrders']);
 });
 
 Route::name('api.')->group(function () {
