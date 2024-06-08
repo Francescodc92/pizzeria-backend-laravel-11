@@ -22,6 +22,9 @@ class PizzaResource extends JsonResource
             'price' => $this->price,
             'discountPercent' => $this->discount_percent,
             'priceAfterDiscount' => $this->price_after_discount,
+            'quantity' => $this->whenPivotLoaded('order_pizza', function () {
+                return $this->pivot->quantity;
+            }),
         ];
     }
 }

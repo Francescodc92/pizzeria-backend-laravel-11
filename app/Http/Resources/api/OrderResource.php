@@ -16,12 +16,13 @@ class OrderResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'orderDateForHuman' => $this->order_date_for_human,
+            'orderDateForHuman' => $this->order_date_forHumans,
             'orderStatusTranslated' => $this->order_statuses,
             'status' => $this->status,
             'address' => new AddressResource($this->address),
             'pizzas' => PizzaResource::collection($this->pizzas),
-            'user' => new UserResource($this->user)
+            'user' => new UserResource($this->user),
+            'orderPrice' => $this->order_price
         ];
     }
 }
