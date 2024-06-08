@@ -4,11 +4,11 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Payment\MakePaymentRequest;
+use App\Http\Resources\api\OrderResource;
 use App\Models\Order;
 use App\Models\Pizza;
 use App\Models\User;
 use Braintree\Gateway;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -114,7 +114,7 @@ class OrderController extends Controller
             $query->withTrashed();
         }, 'pizzas']);
     
-        return response()->json(["data" => $user->orders], 200);
+        return OrderResource::collection($user->orders);
     }
 
 }

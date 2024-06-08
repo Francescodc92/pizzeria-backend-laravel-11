@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function updateUserAddress(UserAddressRequest $request)
+    public function createUserAddress(UserAddressRequest $request)
     {
         $newAddress = $request->validated();
-        $user = Auth::user()->load('addresses');
+        $user = User::where('id', Auth::user()->id)->with('addresses')->firstOrFail();
 
         $userAddress = $user->addresses()->where([
             ['road', $newAddress['road']],
