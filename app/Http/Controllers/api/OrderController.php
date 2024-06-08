@@ -106,11 +106,15 @@ class OrderController extends Controller
 
     public function getUserOrders()
     {
-        $user = User::where('id', Auth::user()->id)->with('orders')->firstOrFail();
-
-        $data = $user->orders;
-
-        return response()->json($data, 200);
+        $user = User::with(['orders' => function($query) {
+            $query->orderBy('order_date', 'DESC');
+        }])->findOrFail(Auth::id());
+    
+        $user->orders->load(['address' => function ($query) {
+            $query->withTrashed();
+        }, 'pizzas']);
+    
+        return response()->json(["data" => $user->orders], 200);
     }
 
 }

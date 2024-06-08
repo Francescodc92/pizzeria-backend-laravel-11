@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('country');
             $table->string('zip_code');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

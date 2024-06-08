@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserAddressRequest;
 use App\Http\Resources\api\UserResource;
 use App\Models\Address;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,9 +41,9 @@ class UserController extends Controller
 
     public function deleteUserAddress($addressId)
     {
-        $user = Auth::user()->load('addresses');
+        $user = User::where('id', Auth::user()->id)->with('addresses')->firstOrFail();
 
-        $userAddress = $user->addresses()->whereId($addressId)->get()->first();
+        $userAddress = $user->addresses()->where('id', $addressId)->first();
 
         if ($userAddress) {
             $userAddress->delete();
