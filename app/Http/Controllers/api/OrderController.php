@@ -106,13 +106,15 @@ class OrderController extends Controller
 
     public function getUserOrders()
     {
-        $user = User::with(['orders' => function ($query) {
-            $query->with(['address' => function ($query) {
-                $query->withTrashed();
-            }, 'pizzas'])->orderByDesc('order_date');
-        }])->findOrFail(Auth::id());
-    
-        return OrderResource::collection($user->orders);
+        $userOrders = User::findOrFail(Auth::id())
+        ->orders()
+        ->with(['address' => function ($query) {
+            $query->withTrashed();
+        }, 'pizzas'])
+        ->orderByDesc('order_date')
+        ->paginate(10);
+
+        return OrderResource::collection($userOrders);
     }
 
 }
