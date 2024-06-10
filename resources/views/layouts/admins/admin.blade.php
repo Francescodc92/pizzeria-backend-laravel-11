@@ -21,7 +21,7 @@
         <!-- Page Content -->
         <main class="flex-col w-full lg:flex lg:flex-row h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.admins.admin-navigation')
-            <div class="flex w-full  px-3 bg-center dark:bg-[url('img/cielostellato.PNG')] overflow-auto bg-cover">
+            <div class="flex w-full  px-3 bg-center bg-gray-300 dark:bg-[url('img/cielostellato.PNG')] overflow-auto bg-cover">
                 {{ $slot }}
             </div>
         </main>

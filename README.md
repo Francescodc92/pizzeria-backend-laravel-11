@@ -19,20 +19,12 @@
 
 1. creare una rotta dove mandare gli user (se fanno il login dal backend) tipo una welcome con il link per riportare al frontend
 
-### User (api)
-
-decidere se modificare il vecchio frontend o se ricostruirlo da 0 (molto probabilmente ricostruirlo)
-
-1.  -   creare la rotta per la visualizzazione degli ordini dell'utente
-    -   implementare il ritorno delle sole pizza disponibili
-2.  permettere all'utente di poter eliminare gli ordini che ha fatto in precedenza (aggiungere un campo nella tabella che servirà a non far ritornare quell'ordine al frontend)
-3.  aggiungere la rotta per eliminare un indirizzo registrato dall'utente
-
 ### future aggiunte
 
 1. aggiungere una tabella ingredienti per dare opzione di cambiare ingrediente specifico
 2. aggiungere una tabella dipendenti specifica dove inserire i dati dei contratti (scadenza, retribuzione, ruolo specifico ecc )
 3. parte di gestione specifica dei dipendenti
+4. aggiungere una tabella per le prenotazioni
 
 ### Tecnologie:
 

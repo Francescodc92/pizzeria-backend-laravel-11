@@ -5,7 +5,7 @@
       <div class="overflow-x-auto 2xl:flex space-y-3 2xl:space-x-4 2xl:space-y-0">
         
         
-          <div class="w-full 2xl:w-1/2 max-w-4xl mx-auto min-w-[600px] rounded-md p-4 xl:p-6 dark:bg-slate-800/50 bg-[#C83B1A]/50">
+          <div class="w-full 2xl:w-1/2 max-w-4xl mx-auto min-w-[600px] rounded-md p-4 xl:p-6 bg-slate-800/30 border border-[#C83B1A] dark:border-0">
             <h3 class="my-3 text-light text-lg font-semibold">Grafico Ordini Ricevuti</h3>
             <label for="orderTimeSelect" class="text-light">
               Periodo
@@ -19,7 +19,7 @@
             <canvas id="ordersChart"></canvas>
           </div>
 
-          <div class="w-full 2xl:w-1/2 max-w-4xl mx-auto min-w-[600px] rounded-md p-4 xl:p-6 dark:bg-slate-800/50 bg-[#C83B1A]/50">
+          <div class="w-full 2xl:w-1/2 max-w-4xl mx-auto min-w-[600px] rounded-md p-4 xl:p-6 bg-slate-800/30 border border-[#C83B1A] dark:border-0">
             <h3 class="my-3 text-light text-lg font-semibold">Grafico Entrate</h3>
             <label for="orderPriceTimeSelect" class="text-light">
               Periodo
