@@ -49,7 +49,7 @@
                             <td>
 
                             <div class="space-x-1 min-w-fit text-nowrap px-3">
-                                <a href="{{ route('employee.pizzas.show', $pizza->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza</a>                       
+                                <a href="{{ route('employee.pizzas.show', $pizza->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white dark:hover:text-white border-blue-500">Visualizza</a>                       
                             </div>
                         </td>
                     </tr>

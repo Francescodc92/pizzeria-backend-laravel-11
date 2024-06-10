@@ -17,5 +17,19 @@ const confirmation = (event) => {
 };
 
 const toggleDarkMode = () => {
-    document.body.classList.toggle("dark");
+    const htmlElement = document.documentElement;
+    htmlElement.classList.toggle("dark");
+
+    if (htmlElement.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+    }
+});
