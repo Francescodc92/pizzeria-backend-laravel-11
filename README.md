@@ -1,6 +1,5 @@
-## Backend Progetto finale 2.0
+## Backend Progetto Pizzeria 2.0
 
--   [repo versione laravel 10](https://github.com/Francescodc92/pizzeria-backend)
 -   [repo frontend](https://github.com/Francescodc92/pizzeria-frontend)
 
 ### Progetto db
@@ -12,8 +11,6 @@
 ### Admin
 
 4. (da pensare ) un grafico per il numero di utenti registrati se necessario
-5. dare una sistemata al layout specialmente delle show
-6. aggiungere il pulsante per il cambio di tema che per ora funziona in base a tema del pc
 
 ### User
 
@@ -33,5 +30,6 @@
     -   sanctum
     -   spatie (gestione dei ruoli)
 -   docker
+-   braintree (gestione pagamenti)
 -   tailwind css
 -   mySql
