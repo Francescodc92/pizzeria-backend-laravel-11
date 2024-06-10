@@ -11,8 +11,8 @@
             </svg>
         </button>
     </div>
-    <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 lg:block lg:pb-0 lg:overflow-y-auto">
-        <div class="lg:h-[90%]">
+    <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 lg:flex lg:flex-col lg:pb-0 lg:overflow-y-auto">
+        <div class="flex-1">
             <x-admin-link href="{{ route('employee.pizzas.index') }}" :active="request()->routeIs('employee.pizzas.*')">Pizze</x-admin-link>
             <x-admin-link href="{{ route('employee.users.index') }}" :active="request()->routeIs('employee.users.*')">Utenti</x-admin-link>
             <x-admin-link href="{{ route('employee.orders.index') }}" :active="request()->routeIs('employee.orders.*')">Ordini</x-admin-link>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col justify-center items-end ml-3">
+        <div class="flex flex-col justify-center items-end mb-4">
             <input type="checkbox" name="light-switch" id="light-swith" class="light-switch sr-only" />
             <label class="relative cursor-pointer bg-slate-300 border border-[#C83B1A] dark:bg-slate-700 p-4 rounded-md " for="light-switch" onclick="toggleDarkMode()">
                 <svg class="dark:hidden" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
