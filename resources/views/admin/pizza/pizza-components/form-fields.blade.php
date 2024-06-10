@@ -3,7 +3,7 @@
     <span class="text-[#C83B1A]">*</span>
     Nome 
   </label>
-  <input class="shadow dark:bg-slate-500 dark:text-white  border-[#C83B1A] appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" value="{{ isset($pizza) ? $pizza->name : old('name') }}">
+  <input class="shadow dark:bg-slate-500  dark:text-white  border-[#C83B1A] appearance-none border rounded  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" value="{{ isset($pizza) ? $pizza->name : old('name') }}">
   @error('name')
     <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
   @enderror
@@ -13,7 +13,7 @@
   <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">
     Immagine
   </label>
-  <input class="shadow appearance-none border dark:bg-slate-500  border-[#C83B1A] dark:text-white  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="image" name="image" type="file" accept="image/*">
+  <input class="shadow appearance-none border bg-white dark:bg-slate-500  border-[#C83B1A] dark:text-white  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="image" name="image" type="file" accept="image/*">
 </div>
 @error('image')
   <span class="text-red-500 text-sm bg-red-300 px-4 py-1 rounded-sm ">{{ $message }}</span>
@@ -80,7 +80,7 @@
   <span class="text-[#C83B1A]">*</span>
   Descrizione
   <textarea
-      class="peer h-full min-h-[100px] dark:bg-slate-500 border-[#C83B1A] w-full resize-none rounded-[7px] border border-blue-gray-200  bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
+      class="peer h-full min-h-[80px] bg-white dark:bg-slate-500 border-[#C83B1A] w-full resize-none rounded-[7px] border border-blue-gray-200  bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
       name="description"
     >{{ isset($pizza) ? $pizza->description : old('description') }}</textarea>
     @error('description')

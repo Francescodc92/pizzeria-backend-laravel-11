@@ -1,5 +1,5 @@
 <x-admin-layout>
-  <div class="w-full py-3 lg:py-12">
+  <div class="w-full py-3 lg:py-2">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-4 py-3">
 
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista Ordini</h2>

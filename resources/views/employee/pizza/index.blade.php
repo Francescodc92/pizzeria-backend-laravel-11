@@ -1,12 +1,12 @@
 <x-employee-layout>
-  <div class="w-full py-3 lg:py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-4">
+  <div class="w-full py-3 lg:py-4">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-3">
 
         <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Lista pizze</h2>
 
-        <div class="overflow-x-auto border bg-gray-200 dark:bg-gray-600 p-2 border-[#C83B1A] rounded-md">
+        <div class="overflow-x-auto border bg-gray-100 dark:bg-gray-600 p-2 border-[#C83B1A] rounded-md mb-5">
             <table class="rounded-md min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-600 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-600 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Nome
@@ -30,7 +30,7 @@
                 </thead>
                 <tbody>
                     @foreach ($pizzas as $pizza)
-                        <tr class="bg-slate-100 min-w-fit border-b-2 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A]">
+                        <tr class="bg-slate-200 min-w-fit border-b-2 border-gray-100 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A]">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $pizza->name }}
                             </th>
@@ -57,7 +57,6 @@
                 </tbody> 
             </table>
             <div class="py-2 px-3 text-xs text-gray-700 bg-gray-200 dark:bg-gray-600 dark:text-gray-400">
-
                 {{ $pizzas->onEachSide(1)->links() }}
             </div>
         </div>

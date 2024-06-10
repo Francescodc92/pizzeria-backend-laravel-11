@@ -1,5 +1,5 @@
 <x-admin-layout>
-  <div class="w-full py-12">
+  <div class="w-full py-5">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       
           <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-4">Id Ordine: {{ $order->id }}</h2>
@@ -11,28 +11,28 @@
           </div>
 
           <div class=" flex items-center justify-center text-white pb-5">
-            <div class="w-full lg:max-w-4xl rounded overflow-hidden shadow-lg border bg-[#C83B1A]/20 dark:bg-slate-800 border-[#C83B1A] px-8 py-4">
-              <div class="content lg:flex">
-                <div class="lg:w-2/3">
+            <div class="w-full lg:max-w-4xl  rounded overflow-hidden shadow-lg border bg-slate-800/30 dark:bg-slate-800 border-[#C83B1A] px-8 py-4">
+              <div class="content lg:flex gap-3">
+                <div class="lg:w-1/2 bg-slate-200 dark:bg-slate-600 rounded-md py-3 px-3 text-black dark:text-white">
                   <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-2">Dettagli cliente</h2>
                   <div>
-                    <p class="text-lg">{{ $order->user->first_name }} {{ $order->user->last_name }}</p>
+                    <p class="text-lg capitalize text-[#C83B1A]">{{ $order->user->first_name }} {{ $order->user->last_name }}</p>
                     <p>
                       Contatti
                     </p>
-                    <span class="text-sm text-zinc-500 block">{{ $order->user->email }}</span>
-                    <span class=" text-zinc-500 block">{{ $order->user->phone_number }}</span>
+                    <span class="text-sm text-zinc-600 dark:text-zinc-400 block">{{ $order->user->email }}</span>
+                    <span class=" text-zinc-600 dark:text-zinc-400 block">{{ $order->user->phone_number }}</span>
                     <p>
                       Indirizzo di spedizione
                     </p>
-                    <span class=" text-zinc-500">{{ $order->address->road }}, {{ $order->address->city }}, {{ $order->address->zip_code }}</span>
+                    <span class=" text-zinc-600 dark:text-zinc-400">{{ $order->address->road }}, {{ $order->address->city }}, {{ $order->address->zip_code }}</span>
                     <div class="mt-5 ">
                       <a href="{{ route('admin.users.show', $order->user->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-3 py-1 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza Utente</a> 
                     </div>
                   </div>
                 </div>
 
-                <div class="lg:w-1/3">
+                <div class="lg:w-1/2 bg-slate-200 dark:bg-slate-600 rounded-md py-3 px-3 text-black dark:text-white">
                   <h2 class="text-[#C83B1A] font-bold uppercase text-lg mb-2">Dettagli ordine</h2>
                   <div>
                     <div class="my-2 flex justify-end">
@@ -52,9 +52,9 @@
                       </p>
                     </div>
                     <p>Data ordine</p>
-                    <span class="text-sm text-zinc-500 block">{{ $order->order_date_forHumans }}</span>
+                    <span class="text-sm text-zinc-600 dark:text-zinc-400 block">{{ $order->order_date_forHumans }}</span>
                     <p>Prezzo totale</p>
-                    <span class="text-lg text-zinc-500 block">{{ $order->order_price , 2 }}€</span>
+                    <span class="text-lg text-zinc-600 dark:text-zinc-400 block">{{ $order->order_price , 2 }}€</span>
                   </div>
 
                   <div class="mt-2">
