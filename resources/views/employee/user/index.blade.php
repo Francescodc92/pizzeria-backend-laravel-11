@@ -62,7 +62,7 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                        <tr class="bg-slate-100 min-w-fit border-b-2 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A]">
+                        <tr class="bg-slate-100 min-w-fit border-b-2 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A] dark:hover:border-[#C83B1A]">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $user->first_name }}  {{ $user->last_name }}
                             </th>
@@ -81,7 +81,7 @@
 
                             </td>
                             <td class="px-3 text-right">
-                                <a href="{{ route('employee.users.show', $user->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza</a>                              
+                                <a href="{{ route('employee.users.show', $user->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white border-blue-500 ">Visualizza</a>                              
                             </td>
                         </tr>
                     @endforeach

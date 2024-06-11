@@ -38,13 +38,10 @@
                     <th scope="col" class="px-6 py-3">
                         email
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                            Contatto
-                        </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-1">
                         <form method="GET" action="{{ route('admin.users.index') }}" class="flex gap-3 items-center justify-end rounded px-2">
                             <select onchange="this.form.submit()" id="roles" name="role" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500">
-                                <option class="text-gray-400" value="">
+                                <option class="text-gray-600" value="">
                                     Tutti i ruoli    
                                 </option>
                                 @foreach ($roles as $role)
@@ -62,15 +59,12 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                        <tr class="bg-slate-100 min-w-fit border-b-2 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A]">
+                        <tr class="bg-slate-100 min-w-fit border-b-2 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A] dark:hover:border-[#C83B1A]">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $user->first_name }}  {{ $user->last_name }}
                             </th>
                             <td scope="row" class="px-6 py-4">
                                 {{ $user->email }}
-                            </td>
-                            <td scope="row" class="px-6 py-4">
-                                {{ $user->phone_number }}
                             </td>
                             <td scope="row" class="px-6 flex space-x-2 py-4">
                                 @foreach ($user->roles as $user_role)
@@ -81,7 +75,7 @@
                                     >
                                         @method('DELETE')
                                         @csrf
-                                        <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="submit">
+                                        <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-2 border rounded-md hover:bg-red-500 hover:text-white dark:hover:bg-red-500 dark:hover:text-white border-red-500" type="submit">
                                             {{ ($user_role->name == 'admin') ? 'Amministratore' : (($user_role->name == 'employee') ? 'Dipendente' : 'Utente') }}
                                         </button>
                                     </form>
@@ -90,13 +84,13 @@
                             </td>
                             <td >
                                 <div class="space-x-1 flex items-center">
-                                    <a href="{{ route('admin.users.show', $user->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza</a>
+                                    <a href="{{ route('admin.users.show', $user->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white border-blue-500">Visualizza</a>
                                     <div>
                                         <form method="POST" action="{{route('admin.user.role', $user->id)}}" class="flex gap-3 items-center justify-end  rounded px-2">
                                             @csrf
                                             
                                             <select onchange="this.form.submit()" id="roles" name="role" class="block appearance-none w-full dark:bg-gray-400 border border-gray-400  text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500" >
-                                                <option class="text-gray-400" value="" >
+                                                <option class="text-gray-600" value="" >
                                                     Seleziona un ruolo    
                                                 </option>
                                                 @foreach ($roles as $role)

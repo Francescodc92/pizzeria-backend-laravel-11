@@ -27,7 +27,7 @@
                     </p>
                     <span class=" text-zinc-600 dark:text-zinc-400">{{ $order->address->road }}, {{ $order->address->city }}, {{ $order->address->zip_code }}</span>
                     <div class="mt-5 ">
-                      <a href="{{ route('admin.users.show', $order->user->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-3 py-1 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza Utente</a> 
+                      <a href="{{ route('admin.users.show', $order->user->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-3 py-1 border rounded-md hover:bg-blue-500 hover:text-white dark:hover:text-white border-blue-500">Visualizza Utente</a> 
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@
                                 <td>
     
                                 <div class="space-x-1 min-w-fit text-nowrap px-3">
-                                    <a href="{{ route('admin.pizzas.show', $pizza->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Dettagli pizza</a>                          
+                                    <a href="{{ route('admin.pizzas.show', $pizza->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white dark:hover:text-white border-blue-500">Dettagli pizza</a>                          
                                 </div>
                             </td>
                         </tr>

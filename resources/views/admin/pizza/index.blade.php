@@ -36,7 +36,7 @@
                 </thead>
                 <tbody>
                     @foreach ($pizzas as $pizza)
-                        <tr class="bg-slate-200 min-w-fit border-b-2 border-gray-100 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A]">
+                        <tr class="bg-slate-200 min-w-fit border-b-2 border-gray-100 dark:bg-gray-800 dark:border-gray-700 hover:border-b-2 hover:border-[#C83B1A] dark:hover:border-[#C83B1A]">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $pizza->name }}
                             </th>

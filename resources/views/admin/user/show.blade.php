@@ -49,7 +49,7 @@
                          >
                              @method('DELETE')
                              @csrf
-                             <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-1 border rounded-md hover:bg-red-500 hover:text-white border-red-500" type="submit">
+                             <button class="font-medium text-red-600 dark:text-red-500 hover:underline px-2 py-1 border rounded-md hover:bg-red-500  hover:text-white dark:hover:text-white border-red-500" type="submit">
                                  {{ ($user_role->name == 'admin') ? 'Amministratore' : (($user_role->name == 'employee') ? 'Dipendente' : 'Utente') }}
                              </button>
                          </form>
@@ -127,7 +127,7 @@
                                 <td>
         
                                   <div class="space-x-1 min-w-fit text-nowrap px-3 text-right">
-                                      <a href="{{ route('admin.orders.show', $order->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white border-blue-500">Visualizza</a>                         
+                                      <a href="{{ route('admin.orders.show', $order->id) }}" class="font-medium inline-block text-blue-600 dark:text-blue-500 hover:underline px-2 py-2 border rounded-md hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white border-blue-500">Visualizza</a>                         
                                   </div>
                               </td>
                           </tr>
