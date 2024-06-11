@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Traits;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 trait OrderTrait
 {
@@ -27,8 +28,11 @@ trait OrderTrait
 
     public function show(Order $order)
     {
-
-        return view( $this->getViewPrefix() . '.order.show', compact('order'));
+        $order->load(['address' => function (Relation $query) {
+            $query->withTrashed();
+        }, 'pizzas']);
+    
+        return view($this->getViewPrefix() . '.order.show', compact('order'));
     }
 
     public function update(Request $request, Order $order)
