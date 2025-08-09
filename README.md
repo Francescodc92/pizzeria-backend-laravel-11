@@ -34,4 +34,7 @@
 -   tailwind css
 -   mySql
 
+### Tecnologie aggiunte 2025
+- stripe (gestione pagamenti) 
+
 sail up
