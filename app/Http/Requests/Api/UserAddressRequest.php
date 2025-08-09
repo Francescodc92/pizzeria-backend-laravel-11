@@ -22,7 +22,7 @@ class UserAddressRequest extends FormRequest
     public function rules(): array
     {
         return [
-            
+
             "city" =>  ["required"],
             "country" =>  ["required"],
             "road" =>  ["required"],

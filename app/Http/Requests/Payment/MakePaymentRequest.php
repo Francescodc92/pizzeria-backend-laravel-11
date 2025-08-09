@@ -22,7 +22,6 @@ class MakePaymentRequest extends FormRequest
     public function rules()
     {
         return [
-            'token' => 'required|string',
             'userAddress' => 'required|array',
             'userAddress.road' => 'required|string|max:255',
             'userAddress.city' => 'required|string|max:255',
@@ -37,7 +36,6 @@ class MakePaymentRequest extends FormRequest
     public function messages()
     {
         return [
-            'token.required' => 'Il token è obbligatorio.',
             'userAddress.required' => 'L\'indirizzo dell\'utente è obbligatorio.',
             'userAddress.road.required' => 'La strada è obbligatoria.',
             'userAddress.city.required' => 'La città è obbligatoria.',

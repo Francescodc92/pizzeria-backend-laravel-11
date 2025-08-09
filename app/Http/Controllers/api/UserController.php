@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
@@ -30,13 +31,11 @@ class UserController extends Controller
                 'country' => $newAddress['country'],
                 'zip_code' => $newAddress['zipCode']
             ]);
-        } else { 
-            return response()->json(['message' => 'Indirizzo esistente'], 400);
+
+            return response()->json(['message' => 'Indirizzo creato con successo'], 201);
+        } else {
+            return response()->json(['error' => 'Indirizzo esistente'], 400);
         }
-
-        $user->load('addresses');
-
-        return new UserResource($user);
     }
 
     public function deleteUserAddress($addressId)
@@ -49,8 +48,7 @@ class UserController extends Controller
             $userAddress->delete();
             return response()->json(['message' => 'Indirizzo eliminato'], 200);
         } else {
-            return response()->json(['message' => 'Indirizzo non trovato'], 404);
+            return response()->json(['error' => 'Indirizzo non trovato'], 404);
         }
     }
 }
-

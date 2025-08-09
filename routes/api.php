@@ -13,10 +13,16 @@ Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum')
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/user/address', [UserController::class, 'createUserAddress']);
     Route::delete('/user/address/{addressId}', [UserController::class, 'deleteUserAddress']);
+    // payment braintree
     Route::get('/orders/generate/token', [OrderController::class, 'generateFrontToken']);
     Route::post('/orders/make/payment', [OrderController::class, 'makePayment']);
     Route::get('/orders', [OrderController::class, 'getUserOrders']);
+    // payment stripe
+    Route::post('/orders/stripe/intent-payment', [OrderController::class, 'stripeIntentPayment']);
 });
+
+// payment stripe webhook
+Route::post('/stripe/webhook', [OrderController::class, 'stripeWebhook']);
 
 Route::name('api.')->group(function () {
     Route::get('/pizzas', [PizzaController::class, 'index']);

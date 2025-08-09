@@ -20,7 +20,7 @@ class AuthController extends Controller
             $user = Auth::user();
             $userResource =  new  UserResource($user);
 
-            return response()->json(['message' => 'Login effettuato con successo!', 'data' => $userResource], 200);
+            return response()->json(['message' => 'Login effettuato con successo!', 'loggedUser' => $userResource], 200);
         }
 
         return response()->json(['error' => 'Le credenziali inserite non sono corrette!'], 400);
@@ -53,7 +53,6 @@ class AuthController extends Controller
     public function user()
     {
         $user = Auth::user();
-        return  new  UserResource($user);
+        return  response()->json(['loggedUser' => new  UserResource($user)], 200);
     }
-
 }
